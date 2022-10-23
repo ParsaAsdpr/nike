@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
+import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import ProductItem from '../components/ProductItem';
 import Product from '../models/Product';
@@ -26,14 +27,18 @@ export default function Home({ products }) {
 
   return (
     <Layout title="Home Page">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <Hero />
+      <div className="bg-stone-900 py-10 w-full min-w-full">
+        <div className='grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto overflow-hidden px-10'>
         {products.map((product) => (
           <ProductItem
             product={product}
             key={product.slug}
             addToCartHandler={addToCartHandler}
+            isProduct={true}
           ></ProductItem>
         ))}
+        </div>
       </div>
     </Layout>
   );
