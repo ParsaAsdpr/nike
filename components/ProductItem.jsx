@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import LinkButton from './LinkButton';
+import LinkButton from './common/LinkButton';
 import { AiFillStar } from "react-icons/ai";
 import PN from "persian-number";
-import PrimaryButton from "./PraimaryButton";
+import PrimaryButton from "./common/PraimaryButton";
 import Link from 'next/link';
 
 export default function ProductItem({ product, addToCartHandler, isProduct }) {

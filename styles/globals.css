@@ -39,6 +39,13 @@ textarea {
   @apply my-3 rounded-lg bg-green-100 p-3 text-green-700;
 }
 
+.curve{
+  background: url(/Images/Path\ 148.svg) no-repeat center;
+  top: -69px;
+  width: 100%;
+  height: 30px;
+  z-index: 99;
+}
 .shoe{
   filter: drop-shadow(0px 0px 70px #00FF5D44);
 }
