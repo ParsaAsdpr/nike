@@ -7,7 +7,8 @@ import { Store } from "../../utils/Store";
 import DropdownLink from "../DropdownLink";
 import Image from "next/image";
 import SearchBox from "./SearchBox";
-import {FiShoppingCart} from 'react-icons/fi'
+import { FiShoppingCart } from "react-icons/fi";
+import {BsFillTriangleFill} from 'react-icons/bs'
 
 const Navbar = () => {
   const navItems = [
@@ -58,7 +59,11 @@ const Navbar = () => {
         <div className="flex flex-row gap-5 items-center">
           <SearchBox />
           <Link href="/cart">
-            <a className="p-2 text-gray-400 text-3xl hover:scale-110 transition" title="سبد خرید" href="# ">
+            <a
+              className="p-2 text-gray-400 hover:text-gray-200 text-3xl hover:scale-110 transition"
+              title="سبد خرید"
+              href="# "
+            >
               <FiShoppingCart />
               {cartItemsCount > 0 && (
                 <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
@@ -72,8 +77,9 @@ const Navbar = () => {
             "Loading"
           ) : session?.user ? (
             <Menu as="div" className="relative inline-block">
-              <Menu.Button className="text-gray-400 hover:text-gray-200 transition">
-                {session.user.name}
+              <Menu.Button className="text-gray-400 hover:text-gray-200 transition border border-stone-500 bg-[#151515] rounded-full px-5 py-2 flex flex-row items-center gap-5 justify-between" dir="ltr">
+                <p>{session.user.name}</p>
+                <BsFillTriangleFill className="text-xs rotate-180" />
               </Menu.Button>
               <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg">
                 <Menu.Item>
@@ -109,7 +115,9 @@ const Navbar = () => {
             </Menu>
           ) : (
             <Link href="/login">
-              <a className="p-2 text-lg text-gray-400 hover:text-gray-200 transition">ورود</a>
+              <a className="p-2 text-lg text-gray-400 hover:text-gray-200 transition">
+                ورود
+              </a>
             </Link>
           )}
         </div>

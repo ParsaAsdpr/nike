@@ -8,6 +8,12 @@ import ProductItem from "../components/ProductItem";
 import Product from "../models/Product";
 import db from "../utils/db";
 import { Store } from "../utils/Store";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import responsive from "../utils/carouselResponsive";
+import { CustomLeftArrow, CustomRightArrow } from "../utils/carouselButtons";
+import Advantages from "../components/Advantages";
+import OfferBanner from "../components/OfferBanner";
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
@@ -34,17 +40,30 @@ export default function Home({ products }) {
         <Title text="تخفیف های پاییزی"></Title>
 
         <div className="bg-stone-900 py-5 w-full min-w-full mt-5">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto overflow-hidden px-10">
-            {products.map((product) => (
-              <ProductItem
-                product={product}
-                key={product.slug}
-                addToCartHandler={addToCartHandler}
-                isProduct={true}
-              ></ProductItem>
-            ))}
+          <div className="max-w-7xl mx-auto overflow-hidden px-3 md:px-10">
+            <Carousel
+              responsive={responsive}
+              swipeable={true}
+              customRightArrow={<CustomRightArrow />}
+              customLeftArrow={<CustomLeftArrow />}
+              className="pb-0 md:pb-20"
+              infinite={false}
+            >
+              {products.map((product) => (
+                <ProductItem
+                  product={product}
+                  key={product.slug}
+                  addToCartHandler={addToCartHandler}
+                  isProduct={true}
+                ></ProductItem>
+              ))}
+            </Carousel>
           </div>
         </div>
+
+        <Advantages />
+
+        <OfferBanner />
       </section>
     </Layout>
   );

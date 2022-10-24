@@ -39,7 +39,7 @@ export default function ProductItem({ product, addToCartHandler, isProduct }) {
     //     </button>
     //   </div>
     // </div>
-    <div className="rounded-2xl bg-white shadow-2xl bg-opacity-5 p-6 flex flex-col justify-center" dir='rtl'>
+    <div className="rounded-2xl bg-white shadow-2xl bg-opacity-5 p-4 lg:p-6 flex flex-col justify-center w-[300px] sm:w-[300px] md:w-[340px] lg:w-[240px] xl:w-[280px] " dir='rtl'>
     <Link passHref href={`/product/${product.slug}`}>
       <a className=' cursor-pointer'>
       <img src={product.image} alt={product.name} className="min-w-full rounded-lg" />

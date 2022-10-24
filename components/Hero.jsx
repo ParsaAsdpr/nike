@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="w-full bg-stone-900" dir="rtl">
       <div className="max-w-7xl mx-auto flex flex-row justify-between">
-        <div className="py-40 overflow-hidden flex flex-row justify-between w-1/2">
+        <div className="py-44 overflow-hidden flex flex-row justify-between w-1/2">
           <div className=" flex flex-col justify-center items-center px-20 lg:px-10 xl:px-0">
             <h1 className="text-7xl text-white text-right w-full leading-relaxed">
               محصول جدید نایکی Nike Air Max
