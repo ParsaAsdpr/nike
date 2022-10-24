@@ -5,14 +5,14 @@ import db from '../../../../utils/db';
 const handler = async (req, res) => {
   const session = await getSession({ req });
   if (!session) {
-    return res.status(401).send('Error: signin required');
+    return res.status(401).send('باید وارد شوید');
   }
 
   await db.connect();
   const order = await Order.findById(req.query.id);
   if (order) {
     if (order.isPaid) {
-      return res.status(400).send({ message: 'Error: order is already paid' });
+      return res.status(400).send({ message: 'سفارش مورد نظر از قبل پرداخت شده است.' });
     }
     order.isPaid = true;
     order.paidAt = Date.now();
@@ -23,10 +23,10 @@ const handler = async (req, res) => {
     };
     const paidOrder = await order.save();
     await db.disconnect();
-    res.send({ message: 'order paid successfully', order: paidOrder });
+    res.send({ message: 'سفارش شما با موفقیت پرداخت شد', order: paidOrder });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Error: order not found' });
+    res.status(404).send({ message: 'سفارش مورد نظر پیدا نشد' });
   }
 };
 

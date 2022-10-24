@@ -105,7 +105,7 @@ const Navbar = () => {
                 )}
                 <Menu.Item>
                   <a
-                    className="dropdown-link"
+                    className="dropdown-link text-red-500"
                     href="#"
                     onClick={logoutClickHandler}
                   >

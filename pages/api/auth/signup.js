@@ -15,7 +15,7 @@ async function handler(req, res) {
     password.trim().length < 5
   ) {
     res.status(422).json({
-      message: 'Validation error',
+      message: 'خطای اعتبار سنجی',
     });
     return;
   }
@@ -24,7 +24,7 @@ async function handler(req, res) {
 
   const existingUser = await User.findOne({ email: email });
   if (existingUser) {
-    res.status(422).json({ message: 'User exists already!' });
+    res.status(422).json({ message: '.حسابی با این ایمیل از قبل وجود دارد' });
     await db.disconnect();
     return;
   }
@@ -39,7 +39,7 @@ async function handler(req, res) {
   const user = await newUser.save();
   await db.disconnect();
   res.status(201).send({
-    message: 'Created user!',
+    message: 'حساب شما ایجاد شد.',
     _id: user._id,
     name: user.name,
     email: user.email,

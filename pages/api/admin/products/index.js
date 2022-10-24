@@ -5,7 +5,7 @@ import db from '../../../../utils/db';
 const handler = async (req, res) => {
   const session = await getSession({ req });
   if (!session || !session.user.isAdmin) {
-    return res.status(401).send('admin signin required');
+    return res.status(401).send('باید با حساب ادمین وارد شوید.');
   }
   // const { user } = session;
   if (req.method === 'GET') {
@@ -13,7 +13,7 @@ const handler = async (req, res) => {
   } else if (req.method === 'POST') {
     return postHandler(req, res);
   } else {
-    return res.status(400).send({ message: 'Method not allowed' });
+    return res.status(400).send({ message: 'مجاز به انجام این کار نیستید' });
   }
 };
 const postHandler = async (req, res) => {
@@ -33,7 +33,7 @@ const postHandler = async (req, res) => {
 
   const product = await newProduct.save();
   await db.disconnect();
-  res.send({ message: 'Product created successfully', product });
+  res.send({ message: 'کالا با موفیت اضافه شد', product });
 };
 const getHandler = async (req, res) => {
   await db.connect();

@@ -5,12 +5,12 @@ import db from '../../../utils/db';
 
 async function handler(req, res) {
   if (req.method !== 'PUT') {
-    return res.status(400).send({ message: `${req.method} not supported` });
+    return res.status(400).send({ message: `${req.method} مجاز نیست.` });
   }
 
   const session = await getSession({ req });
   if (!session) {
-    return res.status(401).send({ message: 'signin required' });
+    return res.status(401).send({ message: 'باید وارد شوید' });
   }
 
   const { user } = session;
@@ -23,7 +23,7 @@ async function handler(req, res) {
     (password && password.trim().length < 5)
   ) {
     res.status(422).json({
-      message: 'Validation error',
+      message: 'خطای اعتبار سنجی',
     });
     return;
   }
@@ -40,7 +40,7 @@ async function handler(req, res) {
   await toUpdateUser.save();
   await db.disconnect();
   res.send({
-    message: 'User updated',
+    message: 'کاربر با موفقیت ویرایش شد.',
   });
 }
 

@@ -15,12 +15,12 @@ const handler = async (req, res) => {
     const deliveredOrder = await order.save();
     await db.disconnect();
     res.send({
-      message: 'order delivered successfully',
+      message: 'محصول با موفقیت ارسال شد.',
       order: deliveredOrder,
     });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Error: order not found' });
+    res.status(404).send({ message: 'پیدا نشد.' });
   }
 };
 
