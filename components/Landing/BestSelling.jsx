@@ -44,6 +44,7 @@ const BestSelling = ({ products, title }) => {
                 key={product.slug}
                 addToCartHandler={addToCartHandler}
                 isProduct={true}
+                inSlider
               ></ProductItem>
             ))}
           </Carousel>

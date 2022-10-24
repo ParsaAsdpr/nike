@@ -10,7 +10,7 @@ import LatestProduct from "../components/Landing/LatestProduct";
 
 export default function Home({products}) {
   return (
-    <Layout title="Home Page">
+    <Layout title="خانه">
       <Hero />
       <section className="relative z-0 mt-10" dir="rtl">
         <div className="curve absolute"></div>

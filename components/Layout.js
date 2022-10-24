@@ -9,7 +9,7 @@ export default function Layout({ title, children }) {
   return (
     <>
       <Head>
-        <title>{title ? title + ' - Nike' : 'Nike'}</title>
+        <title>{title ? title + ' - نایکی' : 'نایکی'}</title>
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

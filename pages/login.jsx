@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import { getError } from '../utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import PrimaryButton from '../components/common/PraimaryButton';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -39,14 +40,15 @@ export default function LoginScreen() {
     }
   };
   return (
-    <Layout title="Login">
+    <Layout title="ورود">
       <form
-        className="mx-auto max-w-screen-md"
+        className="mx-auto max-w-screen-sm bg-stone-900 mt-10 p-10 rounded-xl text-stone-200"
         onSubmit={handleSubmit(submitHandler)}
+        dir="rtl"
       >
-        <h1 className="mb-4 text-xl">Login</h1>
-        <div className="mb-4">
-          <label htmlFor="email">Email</label>
+        <h1 className="mb-14 mt-5 text-4xl font-bold text-center">ورود</h1>
+        <div className="mb-8 mt-3">
+          <label htmlFor="email" className='font-semibold text-lg'>ایمیل</label>
           <input
             type="email"
             {...register('email', {
@@ -56,36 +58,36 @@ export default function LoginScreen() {
                 message: 'Please enter valid email',
               },
             })}
-            className="w-full"
+            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.email && 'border-red-500'}`}
             id="email"
             autoFocus
           ></input>
           {errors.email && (
-            <div className="text-red-500">{errors.email.message}</div>
+            <div className="text-red-500 text-xs pt-3">{errors.email.message}</div>
           )}
         </div>
-        <div className="mb-4">
-          <label htmlFor="password">Password</label>
+        <div className="mb-8">
+          <label htmlFor="password" className='font-semibold'>گذرواژه</label>
           <input
             type="password"
             {...register('password', {
               required: 'Please enter password',
               minLength: { value: 6, message: 'password is more than 5 chars' },
             })}
-            className="w-full"
+            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.password && 'border-red-500'}`}
             id="password"
             autoFocus
           ></input>
           {errors.password && (
-            <div className="text-red-500 ">{errors.password.message}</div>
+            <div className="text-red-500 text-xs pt-3">{errors.password.message}</div>
           )}
         </div>
-        <div className="mb-4 ">
-          <button className="primary-button">Login</button>
+        <div className="mb-8 ">
+          <PrimaryButton text='ورود' />
         </div>
-        <div className="mb-4 ">
-          Don&apos;t have an account? &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
+        <div className="mb-3 px-3">
+          حسابی ندارید؟ &nbsp;
+          <Link href={`/register?redirect=${redirect || '/'}`}><a className='text-green-500 hover:underline'>ثبت نام کنید</a></Link>
         </div>
       </form>
     </Layout>

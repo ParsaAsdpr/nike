@@ -19,10 +19,10 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-row justify-between mt-12 w-full">
-              <div className="w-1/4">
+              <div className="w-1/3">
                 <PrimaryButton url="#" text="مشاهده محصول" />
               </div>
-              <div className="w-1/3 text-white text-2xl opacity-70 ml-24">
+              <div className="w-1/3 text-white text-2xl opacity-70 ml-24 flex flex-row items-center">
                 <p>{PN.convertEnToPe(PN.sliceNumber("3250000"))} تومان </p>
               </div>
             </div>

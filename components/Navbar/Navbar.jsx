@@ -12,7 +12,7 @@ import {BsFillTriangleFill} from 'react-icons/bs'
 
 const Navbar = () => {
   const navItems = [
-    { text: "محصولات", url: "!#" },
+    { text: "محصولات", url: "/products" },
     { text: "فروش ویژه", url: "!#" },
     { text: "بلاگ", url: "!#" },
   ];
@@ -42,6 +42,7 @@ const Navbar = () => {
             <Image
               src={"/Images/Logo.svg"}
               alt={"logo"}
+              className='cursor-pointer'
               width={50}
               height={50}
             />
@@ -60,13 +61,13 @@ const Navbar = () => {
           <SearchBox />
           <Link href="/cart">
             <a
-              className="p-2 text-gray-400 hover:text-gray-200 text-3xl hover:scale-110 transition"
+              className="p-2 text-gray-400 hover:text-gray-200 text-3xl hover:scale-110 transition relative"
               title="سبد خرید"
               href="# "
             >
               <FiShoppingCart />
               {cartItemsCount > 0 && (
-                <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                <span className="absolute top-0 right-0 rounded-full bg-red-600 px-1.5 py-0.5 text-xs font-bold text-white">
                   {cartItemsCount}
                 </span>
               )}
