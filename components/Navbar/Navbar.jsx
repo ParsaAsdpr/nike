@@ -16,6 +16,7 @@ const Navbar = () => {
     { text: "فروش ویژه", url: "!#" },
     { text: "بلاگ", url: "!#" },
   ];
+
   const { status, data: session } = useSession();
 
   const { state, dispatch } = React.useContext(Store);
@@ -78,11 +79,11 @@ const Navbar = () => {
             "Loading"
           ) : session?.user ? (
             <Menu as="div" className="relative inline-block">
-              <Menu.Button className="text-gray-400 hover:text-gray-200 transition border border-stone-500 bg-[#151515] rounded-full px-5 py-2 flex flex-row items-center gap-5 justify-between" dir="ltr">
+              <Menu.Button className="text-gray-400 hover:text-gray-200 transition border border-stone-500 bg-[#151515] rounded-full px-6 py-3 flex flex-row items-center gap-5 justify-between" dir="ltr">
                 <p>{session.user.name}</p>
                 <BsFillTriangleFill className="text-xs rotate-180" />
               </Menu.Button>
-              <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg">
+              <Menu.Items className="absolute right-0 w-56 origin-top-right bg-stone-700 text-white shadow-lg rounded-md py-2">
                 <Menu.Item>
                   <DropdownLink className="dropdown-link" href="/profile">
                     پروفایل
