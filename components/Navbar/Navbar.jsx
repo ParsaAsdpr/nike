@@ -4,7 +4,7 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 import Cookies from "js-cookie";
 import { Store } from "../../utils/Store";
-import DropdownLink from "../DropdownLink";
+import DropdownLink from "../common/DropdownLink";
 import Image from "next/image";
 import SearchBox from "./SearchBox";
 import { FiShoppingCart } from "react-icons/fi";

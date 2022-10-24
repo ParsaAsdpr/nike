@@ -14,13 +14,6 @@ body {
   box-sizing: border-box;
 }
 
-.primary-button {
-  @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400  active:bg-amber-500;
-}
-.default-button {
-  @apply rounded bg-gray-100 py-2  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
-}
-
 input,
 select,
 textarea {
@@ -49,7 +42,10 @@ textarea {
 .shoe{
   filter: drop-shadow(0px 0px 70px #00FF5D44);
 }
-
+.latest-product{
+  background: url(/Images/Path\ 4.svg) no-repeat right;
+  background-size: 150% 100%;
+}
 @font-face {
   font-family: koodak;
   src: url(/Fonts/BKoodkBd.ttf);

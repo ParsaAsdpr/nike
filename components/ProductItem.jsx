@@ -12,41 +12,14 @@ export default function ProductItem({ product, addToCartHandler, isProduct }) {
     content.push(1);
   }
   return (
-    // <div className="rounded-2xl bg-white shadow-2xl bg-opacity-5 p-6 flex flex-col justify-center">
-    //   <Link href={`/product/${product.slug}`}>
-    //     <a>
-    //       <img
-    //         src={product.image}
-    //         alt={product.name}
-    //         className="rounded shadow object-cover h-64 w-full"
-    //       />
-    //     </a>
-    //   </Link>
-    //   <div className="flex flex-col items-center justify-center p-5">
-    //     <Link href={`/product/${product.slug}`}>
-    //       <a>
-    //         <h2 className={`text-lg text-white mt-4 ${ isProduct ? "text-lg" : "text-xl"}`}>{product.name}</h2>
-    //       </a>
-    //     </Link>
-    //     <p className="mb-2">{product.brand}</p>
-    //     <p>${product.price}</p>
-    //     <button
-    //       className="primary-button"
-    //       type="button"
-    //       onClick={() => addToCartHandler(product)}
-    //     >
-    //       Add to cart
-    //     </button>
-    //   </div>
-    // </div>
-    <div className="rounded-2xl bg-white shadow-2xl bg-opacity-5 p-4 lg:p-6 flex flex-col justify-center w-[300px] sm:w-[300px] md:w-[340px] lg:w-[240px] xl:w-[280px] " dir='rtl'>
+    <div className="rounded-2xl bg-white shadow-2xl bg-opacity-5 p-4 lg:p-6 flex flex-col justify-center w-[300px] sm:w-[300px] md:w-[340px] lg:w-[240px] xl:w-[280px]" dir='rtl'>
     <Link passHref href={`/product/${product.slug}`}>
       <a className=' cursor-pointer'>
       <img src={product.image} alt={product.name} className="min-w-full rounded-lg" />
       </a>
     </Link>
     <Link passHref href={`/product/${product.slug}`}>
-    <a className={`text-white mt-4 cursor-pointer ${ isProduct ? "text-lg" : "text-xl"}`}> کفش {product.brand} {product.name}</a>
+    <a className={`text-white mt-4 cursor-pointer text-right ${ isProduct ? "text-lg" : "text-xl"}`}> کفش {product.brand} {product.name}</a>
     </Link>
     {isProduct ? (
       <div className="flex flex-row justify-between py-4 items-center">

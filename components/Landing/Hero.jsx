@@ -1,5 +1,5 @@
 import React from "react";
-import PrimaryButton from "./common/PraimaryButton";
+import PrimaryButton from "../common/PraimaryButton";
 import PN from "persian-number";
 
 const Hero = () => {
