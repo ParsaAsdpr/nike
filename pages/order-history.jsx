@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useEffect, useReducer } from 'react';
 import Layout from '../components/Layout';
 import { getError } from '../utils/error';
+import PN from 'persian-number'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -47,33 +48,33 @@ function OrderHistoryScreen() {
         <div className="overflow-x-auto">
           <div className="min-w-full">
               <ul className='w-full grid grid-cols-6 border-b border-b-stone-300'>
-                <li className="p-5 text-right">شناسه</li>
-                <li className="p-5 text-right">تاریخ</li>
-                <li className="p-5 text-right">مجموع</li>
-                <li className="p-5 text-right">پرداخت شده</li>
-                <li className="p-5 text-right">ارسال شده</li>
-                <li className="p-5 text-right">فرمان ها</li>
+                <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">شناسه</li>
+                <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">تاریخ</li>
+                <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">مجموع</li>
+                <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">وضعیت پرداخت</li>
+                <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">وضعیت ارسال</li>
+                <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">فرمان ها</li>
               </ul>
               {orders.map((order) => (
-                <ul key={order._id} className="w-full grid grid-cols-6 border-b border-b-stone-300">
-                  <td className=" p-5 ">{order._id.substring(20, 24)}</td>
-                  <td className=" p-5 ">{order.createdAt.substring(0, 10)}</td>
-                  <td className=" p-5 ">${order.totalPrice}</td>
-                  <td className=" p-5 ">
+                <ul key={order._id} className="w-full grid grid-cols-6 border-b text-stone-300 border-b-stone-300">
+                  <li className=" p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden">{order._id.substring(20, 24)}</li>
+                  <li className=" p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden">{order.createdAt.substring(0, 10)}</li>
+                  <li className=" p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden">{PN.convertEnToPe(PN.sliceNumber(order.totalPrice))} تومان{" "}</li>
+                  <li className=" p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden">
                     {order.isPaid
                       ? `${order.paidAt.substring(0, 10)}`
-                      : 'not paid'}
-                  </td>
-                  <td className=" p-5 ">
+                      : 'پرداخت نشده'}
+                  </li>
+                  <li className=" p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden">
                     {order.isDelivered
                       ? `${order.deliveredAt.substring(0, 10)}`
-                      : 'not delivered'}
-                  </td>
-                  <td className=" p-5 ">
+                      : 'دریافت نشده'}
+                  </li>
+                  <li className=" p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden">
                     <Link href={`/order/${order._id}`} passHref>
-                      <a>Details</a>
+                      <a>جزییات</a>
                     </Link>
-                  </td>
+                  </li>
                 </ul>
               ))}
           </div>
