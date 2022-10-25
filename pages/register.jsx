@@ -59,11 +59,11 @@ export default function LoginScreen() {
           <label htmlFor="name">نام</label>
           <input
             type="text"
-            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.email && 'border-red-500'}`}
+            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.name && 'border-red-500'}`}
             id="name"
             autoFocus
             {...register('name', {
-              required: 'Please enter name',
+              required: 'لطفا نام خود را وارد کنید',
             })}
           />
           {errors.name && (
@@ -76,10 +76,10 @@ export default function LoginScreen() {
           <input
             type="email"
             {...register('email', {
-              required: 'Please enter email',
+              required: 'لطفا ایمیل خود را وارد کنید.',
               pattern: {
                 value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                message: 'Please enter valid email',
+                message: 'فرمت ایمیل اشتباه است.',
               },
             })}
             className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.email && 'border-red-500'}`}
@@ -94,10 +94,10 @@ export default function LoginScreen() {
           <input
             type="password"
             {...register('password', {
-              required: 'Please enter password',
-              minLength: { value: 6, message: 'password is more than 5 chars' },
+              required: 'لطفا گذرواژه را وارد کنید.',
+              minLength: { value: 6, message: 'گذرواژه باید بیش از ۶ حرف باشد.' },
             })}
-            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.email && 'border-red-500'}`}
+            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.password && 'border-red-500'}`}
             id="password"
             autoFocus
           ></input>
@@ -108,15 +108,15 @@ export default function LoginScreen() {
         <div className="mb-4">
           <label htmlFor="confirmPassword">تکرار گذرواژه</label>
           <input
-            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.email && 'border-red-500'}`}
+            className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.confirmPassword && 'border-red-500'}`}
             type="password"
             id="confirmPassword"
             {...register('confirmPassword', {
-              required: 'Please enter confirm password',
+              required: 'لطفا گذرواژه را وارد کنید.',
               validate: (value) => value === getValues('password'),
               minLength: {
                 value: 6,
-                message: 'confirm password is more than 5 chars',
+                message: 'گذرواژه باید بیش از ۶ حرف داشته باشد',
               },
             })}
           />
@@ -127,7 +127,7 @@ export default function LoginScreen() {
           )}
           {errors.confirmPassword &&
             errors.confirmPassword.type === 'validate' && (
-              <div className="text-red-500 text-xs pt-3 ">Password do not match</div>
+              <div className="text-red-500 text-xs pt-3 ">گذرواژه ها مطابقت ندارند.</div>
             )}
         </div>
 

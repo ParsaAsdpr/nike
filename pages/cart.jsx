@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
-import { XCircleIcon } from "@heroicons/react/outline";
 import Layout from "../components/Layout";
 import { Store } from "../utils/Store";
 import { useRouter } from "next/router";
@@ -9,6 +8,7 @@ import dynamic from "next/dynamic";
 import axios from "axios";
 import { toast } from "react-toastify";
 import PrimaryButton from "../components/common/PraimaryButton";
+import {AiOutlineCloseCircle} from 'react-icons/ai'
 
 function CartScreen() {
   const router = useRouter();
@@ -83,7 +83,7 @@ function CartScreen() {
                   <li className="p-5 flex items-center">${item.price}</li>
                   <li className="p-5 flex items-center">
                     <button onClick={() => removeItemHandler(item)}>
-                      <XCircleIcon className="h-5 w-5"></XCircleIcon>
+                      <AiOutlineCloseCircle className="text-2xl text-red-500 hover:text-red-600"></AiOutlineCloseCircle>
                     </button>
                   </li>
                 </ul>

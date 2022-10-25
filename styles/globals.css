@@ -15,7 +15,10 @@ body {
 }
 
 .dropdown-link {
-  @apply flex hover:bg-stone-800 justify-center py-3 transition;
+  @apply flex hover:bg-stone-600 justify-center py-4 transition border-b border-b-stone-600;
+}
+.dropdown-link:last-child {
+  @apply  border-none;
 }
 
 .alert-error {

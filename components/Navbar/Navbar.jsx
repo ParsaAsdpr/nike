@@ -83,10 +83,10 @@ const Navbar = () => {
                 <p>{session.user.name}</p>
                 <BsFillTriangleFill className="text-xs rotate-180" />
               </Menu.Button>
-              <Menu.Items className="absolute right-0 w-56 origin-top-right bg-stone-700 text-white shadow-lg rounded-md py-2">
+              <Menu.Items className="absolute right-0 w-56 origin-top-right top-16 bg-stone-700 text-white shadow-lg rounded-md py-1">
                 <Menu.Item>
                   <DropdownLink className="dropdown-link" href="/profile">
-                    پروفایل
+                    ویرایش پروفایل
                   </DropdownLink>
                 </Menu.Item>
                 <Menu.Item>

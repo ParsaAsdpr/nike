@@ -51,10 +51,10 @@ const deleteHandler = async (req, res) => {
   if (product) {
     await product.remove();
     await db.disconnect();
-    res.send({ message: 'Product deleted successfully' });
+    res.send({ message: 'کالا با موفقیت پاک شد' });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Product not found' });
+    res.status(404).send({ message: 'کالا مورد نظر پیدا نشد' });
   }
 };
 export default handler;

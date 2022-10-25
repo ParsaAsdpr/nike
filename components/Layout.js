@@ -14,7 +14,7 @@ export default function Layout({ title, children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ToastContainer position="bottom-center" limit={1} />
+      <ToastContainer position="top-right" theme="dark" limit={1} />
 
       <div className="flex min-h-screen flex-col justify-between">
         <Navbar />

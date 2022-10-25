@@ -37,27 +37,25 @@ function OrderHistoryScreen() {
   }, []);
   return (
     <Layout title="Order History">
-      <h1 className="mb-4 text-xl">Order History</h1>
+      <div className='mx-auto max-w-7xl bg-stone-900 mt-10 p-10 rounded-xl text-slate-200' dir='rtl'>
+      <h1 className="mb-10 mt-5 text-4xl font-bold text-center">تاریخچه خرید ها</h1>
       {loading ? (
-        <div>Loading...</div>
+        <div className='text-center py-20 text-4xl text-white'>در حال بارگذاری...</div>
       ) : error ? (
         <div className="alert-error">{error}</div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full">
-            <thead className="border-b">
-              <tr>
-                <th className="px-5 text-left">ID</th>
-                <th className="p-5 text-left">DATE</th>
-                <th className="p-5 text-left">TOTAL</th>
-                <th className="p-5 text-left">PAID</th>
-                <th className="p-5 text-left">DELIVERED</th>
-                <th className="p-5 text-left">ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div className="min-w-full">
+              <ul className='w-full grid grid-cols-6 border-b border-b-stone-300'>
+                <li className="p-5 text-right">شناسه</li>
+                <li className="p-5 text-right">تاریخ</li>
+                <li className="p-5 text-right">مجموع</li>
+                <li className="p-5 text-right">پرداخت شده</li>
+                <li className="p-5 text-right">ارسال شده</li>
+                <li className="p-5 text-right">فرمان ها</li>
+              </ul>
               {orders.map((order) => (
-                <tr key={order._id} className="border-b">
+                <ul key={order._id} className="w-full grid grid-cols-6 border-b border-b-stone-300">
                   <td className=" p-5 ">{order._id.substring(20, 24)}</td>
                   <td className=" p-5 ">{order.createdAt.substring(0, 10)}</td>
                   <td className=" p-5 ">${order.totalPrice}</td>
@@ -76,12 +74,12 @@ function OrderHistoryScreen() {
                       <a>Details</a>
                     </Link>
                   </td>
-                </tr>
+                </ul>
               ))}
-            </tbody>
-          </table>
+          </div>
         </div>
       )}
+      </div>
     </Layout>
   );
 }

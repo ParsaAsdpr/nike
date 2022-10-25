@@ -52,10 +52,10 @@ export default function LoginScreen() {
           <input
             type="email"
             {...register('email', {
-              required: 'Please enter email',
+              required: 'لطفا ایمیل خود را وارد کنید.',
               pattern: {
                 value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                message: 'Please enter valid email',
+                message: 'فرمت ایمیل اشتباه است.',
               },
             })}
             className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.email && 'border-red-500'}`}
@@ -71,8 +71,8 @@ export default function LoginScreen() {
           <input
             type="password"
             {...register('password', {
-              required: 'Please enter password',
-              minLength: { value: 6, message: 'password is more than 5 chars' },
+              required: 'لطفا گذرواژه را وارد کنید.',
+              minLength: { value: 6, message: 'گذرواژه باید بیش از ۶ حرف باشد.' },
             })}
             className={`w-full mt-2 rounded-sm border border-stone-700 p-3 outline-none bg-stone-800 focus:outline-blue-400 ${errors.password && 'border-red-500'}`}
             id="password"

@@ -26,7 +26,7 @@ const data = {
       rating: 4.5,
       numReviews: 8,
       countInStock: 20,
-      description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et fuga error atque voluptates harum suscipit, ea culpa nostrum deserunt explicabo totam voluptas veniam consectetur sit veritatis quasi voluptatem aspernatur corrupti maiores vel voluptatum dolorem nemo? Distinctio laudantium tempora laboriosam. Soluta in, minus id distinctio molestiae quasi voluptas amet repellat, natus iste debitis suscipit saepe excepturi doloremque explicabo iusto asperiores velit expedita dignissimos eos necessitatibus sint eligendi! Dolorum nulla sapiente quasi dolore laudantium quos! Repellendus, accusamus? Perferendis eaque nostrum tenetur?',
+      description: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
     },
     {
       name: 'Air Max',
@@ -38,7 +38,7 @@ const data = {
       rating: 3.2,
       numReviews: 10,
       countInStock: 20,
-      description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et fuga error atque voluptates harum suscipit, ea culpa nostrum deserunt explicabo totam voluptas veniam consectetur sit veritatis quasi  voluptatum dolorem nemo? Distinctio laudantium tempora laboriosam. Soluta in, minus id distinctio molestiae quasi voluptas amet repellat, natus iste debitis suscipit saepe excepturi doloremque explicabo iusto asperiores velit expedita dignissimos eos necessitatibus sint eligendi! Dolorum nulla sapiente quasi dolore laudantium quos! Repellendus, accusamus? Perferendis eaque nostrum tenetur?',
+      description: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
     },
     {
       name: 'Air Jordan 1',
@@ -50,7 +50,7 @@ const data = {
       rating: 4.5,
       numReviews: 3,
       countInStock: 20,
-      description: ' Lorem ipsum dolor sit amet consectetur  voluptates harum suscipit, ea culpa nostrum deserunt explicabo totam voluptas veniam consectetur sit veritatis quasi voluptatem aspernatur corrupti maiores vel voluptatum dolorem nemo? Distinctio laudantium tempora laboriosam. Soluta in, minus id distinctio molestiae quasi voluptas amet repellat, natus iste debitis suscipit saepe excepturi doloremque explicabo iusto asperiores velit expedita dignissimos eos necessitatibus sint eligendi! Dolorum nulla sapiente quasi dolore laudantium quos! Repellendus, accusamus? Perferendis eaque nostrum tenetur?',
+      description: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
     },
     {
       name: 'Blazer Mid',
@@ -62,7 +62,7 @@ const data = {
       rating: 2.9,
       numReviews: 13,
       countInStock: 20,
-      description: ' Lorem ipsum dolor sit amet adipisicing elit. Facere et fuga error atque voluptates harum suscipit, ea culpa nostrum deserunt explicabo totam voluptas veniam consectetur sit veritatis quasi voluptatem aspernatur corrupti maiores vel voluptatum dolorem nemo? Distinctio laudantium tempora laboriosam. Soluta in, minus id distinctio molestiae quasi voluptas amet repellat, natus iste debitis suscipit saepe excepturi doloremque explicabo iusto asperiores velit expedita dignissimos eos necessitatibus sint eligendi! Dolorum nulla sapiente quasi dolore laudantium quos! Repellendus, accusamus? Perferendis eaque nostrum tenetur?',
+      description: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
     },
     {
       name: 'Jordan 1 Mid',
@@ -74,19 +74,19 @@ const data = {
       rating: 3.5,
       numReviews: 7,
       countInStock: 20,
-      description: ' Lorem ipsum dolor sit amet consectetur vel voluptatum dolorem nemo? Distinctio laudantium tempora laboriosam. Soluta in, minus id distinctio molestiae quasi voluptas amet repellat, natus iste debitis suscipit saepe excepturi doloremque explicabo iusto asperiores velit expedita dignissimos eos necessitatibus sint eligendi! Dolorum nulla sapiente quasi dolore laudantium quos! Repellendus, accusamus? Perferendis eaque nostrum tenetur?',
+      description: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
     },
     {
       name: 'Air Force 1',
       slug: 'air-force-1',
       category: 'Women',
-      image: '/images/some good shoe.png',
+      image: '/images/yellow pesto.jpg',
       price: 1200000,
       brand: 'Nike',
       rating: 2.4,
       numReviews: 14,
       countInStock: 20,
-      description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et fuga error atque voluptates harum suscipit, ea culpa nostrum deserunt explicabo totam voluptas veniam consectetur sit veritatis quasi voluptatem aspernatur corrupti maiores vel voluptatum dolorem nemo? Distinctio laudantium tempora laboriosam. Soluta in, minus id distinctio molestiae quasi voluptas amet repellat, natus iste debitis suscipit saepe excepturi doloremque explicabo iusto asperiores velit expedita dignissimos eos necessitatibus sint eligendi! Dolorum nulla sapiente quasi dolore laudantium quos! Repellendus, accusamus? Perferendis eaque nostrum tenetur?',
+      description: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
     },
   ],
 };
