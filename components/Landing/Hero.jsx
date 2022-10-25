@@ -1,6 +1,7 @@
 import React from "react";
 import PrimaryButton from "../common/PraimaryButton";
 import PN from "persian-number";
+import Image from "next/future/image";
 
 const Hero = () => {
   return (
@@ -30,10 +31,12 @@ const Hero = () => {
         </div>
 
         <div className="w-1/2 flex flex-col items-center justify-center">
-            <img
+            <Image
               src="/Images/some good shoe.png"
               alt="shoe"
-              className="w-2/3 rotate-12 shoe"
+              className="rotate-12 shoe overflow-visible"
+              width={500}
+              height={500}
             />
         </div>
       </div>

@@ -1,3 +1,4 @@
+import Image from "next/future/image";
 import React from "react";
 
 
@@ -13,7 +14,7 @@ const Advantages = () => {
     <div className="max-w-7xl mx-auto grid grid-cols-4 py-14 px-20">
         {advantages.map((advantage, index) => (
             <div className="flex flex-col justify-center items-center" key={index}>
-                <img src={advantage.image} alt={advantage.text} className="w-1/2" />
+                <Image src={advantage.image} alt={advantage.text} width={150} height={150} />
                 <p className="text-xl text-white opacity-50 pt-5">{advantage.text}</p>
             </div>
         ))}
