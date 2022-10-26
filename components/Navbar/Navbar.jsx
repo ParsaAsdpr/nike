@@ -90,7 +90,7 @@ const Navbar = () => {
                   </DropdownLink>
                 </Menu.Item>
                 <Menu.Item>
-                  <DropdownLink className="dropdown-link" href="/order-history">
+                  <DropdownLink className="dropdown-link" href="/order/history">
                     تاریخچه خرید ها
                   </DropdownLink>
                 </Menu.Item>

@@ -87,7 +87,7 @@ export default function LoginScreen() {
         </div>
         <div className="mb-3 px-3">
           حسابی ندارید؟ &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}><a className='text-green-500 hover:underline'>ثبت نام کنید</a></Link>
+          <Link href={`/signup?redirect=${redirect || '/'}`}><a className='text-green-500 hover:underline'>ثبت نام کنید</a></Link>
         </div>
       </form>
     </Layout>

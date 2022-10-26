@@ -32,7 +32,7 @@ export default function PaymentScreen() {
       })
     );
 
-    router.push('/placeorder');
+    router.push('/order-product');
   };
   useEffect(() => {
     if (!shippingAddress.address) {

@@ -135,8 +135,8 @@ export default function LoginScreen() {
           <PrimaryButton text='ورود' />
         </div>
         <div className="mb-3 px-3">
-          حسابی ندارید؟ &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}><a className='text-green-500 hover:underline'>ثبت نام</a></Link>
+          از قبل حساب دارید؟ &nbsp;
+          <Link href={`/login`}><a className='text-green-500 hover:underline'>ثبت نام</a></Link>
         </div>
       </form>
     </Layout>
