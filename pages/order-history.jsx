@@ -37,7 +37,7 @@ function OrderHistoryScreen() {
     fetchOrders();
   }, []);
   return (
-    <Layout title="Order History">
+    <Layout title="تاریخه خرید ها">
       <div className='mx-auto max-w-7xl bg-stone-900 mt-10 p-10 rounded-xl text-slate-200' dir='rtl'>
       <h1 className="mb-10 mt-5 text-4xl font-bold text-center">تاریخچه خرید ها</h1>
       {loading ? (
@@ -47,7 +47,7 @@ function OrderHistoryScreen() {
       ) : (
         <div className="overflow-x-auto">
           <div className="min-w-full">
-              <ul className='w-full grid grid-cols-6 border-b border-b-stone-300'>
+              <ul className='w-full grid grid-cols-6 border-b text-green-500 border-b-green-500'>
                 <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">شناسه</li>
                 <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">تاریخ</li>
                 <li className="p-5 text-lg whitespace-nowrap overflow-ellipsis overflow-hidden text-right">مجموع</li>

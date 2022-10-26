@@ -37,7 +37,7 @@ export default NextAuth({
             isAdmin: user.isAdmin,
           };
         }
-        throw new Error('اطلاعات پارد شده اشتباه است.');
+        throw new Error('اطلاعات وارد شده اشتباه است.');
       },
     }),
   ],

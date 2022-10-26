@@ -23,10 +23,10 @@ function CartScreen() {
     const quantity = Number(qty);
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
-      return toast.error("Sorry. Product is out of stock");
+      return toast.error("متاسفیم، کالا مورد نظر تمام شده");
     }
     dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
-    toast.success("Product updated in the cart");
+    toast.success("کالا مورد نظر تغیر یافت");
   };
   return (
     <Layout title="سبد خرید">
@@ -38,7 +38,7 @@ function CartScreen() {
         {cartItems.length === 0 ? (
           <div>
             سبد خرید شما خالی است.&nbsp;{" "}
-            <Link href="/">
+            <Link href="/products">
               <a className="text-green-500 hover:underline">الان خرید کن</a>
             </Link>
           </div>

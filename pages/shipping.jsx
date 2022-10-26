@@ -51,7 +51,7 @@ export default function ShippingScreen() {
   };
 
   return (
-    <Layout title="Shipping Address">
+    <Layout title="آدرس انتقال">
       <CheckoutWizard activeStep={1} />
       <form
         className="mx-auto max-w-screen-sm bg-stone-900 my-10 p-10 rounded-xl text-stone-200"

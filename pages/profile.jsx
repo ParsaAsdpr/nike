@@ -35,7 +35,7 @@ export default function ProfileScreen() {
         email,
         password,
       });
-      toast.success('Profile updated successfully');
+      toast.success('پروفایل شما با موفقیت ویرایش شد.');
       if (result.error) {
         toast.error(result.error);
       }
@@ -45,7 +45,7 @@ export default function ProfileScreen() {
   };
 
   return (
-    <Layout title="Profile">
+    <Layout title="ویرایش پروفایل">
       <form
         className="mx-auto max-w-screen-sm bg-stone-900 mt-10 p-10 rounded-xl text-slate-200"
         onSubmit={handleSubmit(submitHandler)}

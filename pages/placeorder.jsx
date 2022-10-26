@@ -66,38 +66,21 @@ export default function PlaceOrderScreen() {
   };
 
   return (
-    <Layout title="Place Order">
+    <Layout title="سفارش کالا">
       <CheckoutWizard activeStep={3} />
-      <div className='mx-auto max-w-7xl'>
+      <div className='mx-auto max-w-7xl' dir='rtl'>
       {cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
-        </div>
+        سبد خرید شما خالی است.&nbsp;{" "}
+        <Link href="/products">
+          <a className="text-green-500 hover:underline">الان خرید کن</a>
+        </Link>
+      </div>
       ) : (
         <div className="grid md:grid-cols-3 md:gap-5">
-          <div className="overflow-x-auto md:col-span-2 bg-stone-900 rounded-xl p-10 text-stone-200" dir='rtl'>
-          <h1 className="mb-4 text-2xl font-bold">سفارش کالا</h1>
-            <div className="p-1">
-              <h2 className="mb-2 text-xl font-semibold text-stone-300">آدرس انتقال</h2>
-              <div className='text-stone-400'>
-                {shippingAddress.fullName}, {shippingAddress.address},{' '}
-                {shippingAddress.city}, {shippingAddress.postalCode},{' '}
-                {shippingAddress.country}
-              </div>
-              <div className='mt-5'>
-                <SecondaryButton text='ویرایش' handleClick={() => router.push('/shipping')} />
-              </div>
-            </div>
-            <div className="mt-5 p-1">
-              <h2 className="mb-2 text-lg">نحوه پرداخت</h2>
-              <div>{paymentMethod}</div>
-              <div className='mt-5'>
-              <SecondaryButton text='ویرایش' handleClick={() => router.push('/payment')} />
-              </div>
-            </div>
-
-
-            <div className="card overflow-x-auto p-1 mt-5">
+          <div className="overflow-x-auto md:col-span-2 bg-stone-900 rounded-xl p-10 text-stone-200">
+          <h1 className="mb-4 text-2xl font-bold ">سفارش کالا</h1>
+            <div className="overflow-x-auto p-1 mt-5">
               <h2 className="mt-5 text-lg">سفارش ها</h2>
               <div className="min-w-full">
                   <ul className='border-b border-b-stone-200 grid grid-cols-4 py-4 font-bold items-center'>
@@ -133,12 +116,32 @@ export default function PlaceOrderScreen() {
               <div className='mt-5'>
                 <SecondaryButton text='ویرایش' handleClick={() => router.push('/cart')} />
               </div>
+            <div className="mt-7">
+              <h2 className="mb-2 text-xl font-semibold text-stone-300">آدرس انتقال</h2>
+              <div className='text-stone-400'>
+                {shippingAddress.fullName}, {shippingAddress.address},{' '}
+                {shippingAddress.city}, {shippingAddress.postalCode},{' '}
+                {shippingAddress.country}
+              </div>
+              <div className='mt-5'>
+                <SecondaryButton text='ویرایش' handleClick={() => router.push('/shipping')} />
+              </div>
+            </div>
+            <div className="mt-6">
+              <h2 className="mb-2 text-lg">نحوه پرداخت</h2>
+              <div>{paymentMethod}</div>
+              <div className='mt-5'>
+              <SecondaryButton text='ویرایش' handleClick={() => router.push('/payment')} />
+              </div>
+            </div>
+
+
             </div>
           </div>
 
 
           <div>
-            <div className="bg-stone-900 rounded-xl p-10" dir='rtl'>
+            <div className="bg-stone-900 rounded-xl p-10">
               <h2 className="mb-2 text-2xl text-stone-200">خلاصه هزینه ها</h2>
               <ul className='text-lg mt-5 text-stone-300'>
                 <li>

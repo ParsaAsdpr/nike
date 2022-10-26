@@ -21,7 +21,7 @@ export default function PaymentScreen() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!selectedPaymentMethod) {
-      return toast.error('Payment method is required');
+      return toast.error('نحوه پرداخت را انتخاب کنید.');
     }
     dispatch({ type: 'SAVE_PAYMENT_METHOD', payload: selectedPaymentMethod });
     Cookies.set(
@@ -50,7 +50,7 @@ export default function PaymentScreen() {
     <Layout title="Payment Method">
       <CheckoutWizard activeStep={2} />
       <form className="mx-auto max-w-screen-sm bg-stone-900 mt-10 p-10 rounded-xl text-stone-200" dir='rtl' onSubmit={submitHandler}>
-        <h1 className="mb-10 mt-5 text-4xl font-bold text-center">Payment Method</h1>
+        <h1 className="mb-10 mt-5 text-4xl font-bold text-center">نحوه پرداخت</h1>
         {['درگاه بانکی', 'پرداخت درب منزل'].map((payment, index) => (
           <div key={payment} className="mb-4 py-4 px-7 border border-stone-800 bg-[#131313] text-xl rounded-md flex flex-row items-center gap-1">
             <input
