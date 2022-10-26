@@ -16,7 +16,7 @@ export default function ProductScreen(props) {
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
   if (!product) {
-    return <Layout title="Produt Not Found">Produt Not Found</Layout>;
+    return <Layout title="Produt Not Found">محصول مورد نظر پیدا نشد</Layout>;
   }
 
   const addToCartHandler = async () => {
@@ -25,7 +25,7 @@ export default function ProductScreen(props) {
     const { data } = await axios.get(`/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
-      return toast.error("Sorry. Product is out of stock");
+      return toast.error("متاسفیم، کالا مورد نظر تمام شده است");
     }
 
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });

@@ -21,6 +21,14 @@ body {
   @apply  border-none;
 }
 
+.alert-error {
+  @apply text-red-500 text-lg mt-3;
+}
+
+.alert-success {
+  @apply text-green-500 text-lg mt-3;
+}
+
 .curve{
   background: url(/Images/Path\ 148.svg) no-repeat center;
   top: -69px;

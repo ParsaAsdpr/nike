@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
+import PrimaryButton from '../../components/common/PraimaryButton';
 import Layout from '../../components/Layout';
 import { getError } from '../../utils/error';
 
@@ -92,67 +93,57 @@ export default function AdminProdcutsScreen() {
       toast.error(getError(err));
     }
   };
+
+  const navlinks = [
+    { text: "داشبرد", href: "/admin/dashboard", isActive: false },
+    { text: "سفارش ها", href: "/admin/orders", isActive: false },
+    { text: "محصولات", href: "/admin/products", isActive: true },
+    { text: "کاربران", href: "/admin/users", isActive: false  },
+  ];
   return (
     <Layout title="Admin Products">
-      <div className="grid md:grid-cols-4 md:gap-5">
-        <div>
-          <ul>
-            <li>
-              <Link href="/admin/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link href="/admin/orders">Orders</Link>
-            </li>
-            <li>
-              <Link href="/admin/products">
-                <a className="font-bold">Products</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin/users">Users</Link>
-            </li>
+      <div className="grid max-w-7xl mx-auto bg-stone-800 overflow-hidden mt-5 rounded-xl text-stone-200 md:grid-cols-4 md:gap-5" dir='rtl'>
+        <div className='bg-stone-900 p-3'>
+        <ul className="flex flex-col gap-1">
+            {navlinks.map((navlink) => (
+              <li key={navlink.text}>
+                <Link href={navlink.href}>
+                  <a className={`font-bold text-xl text-stone-100 rounded-md flex flex-row items-center justify-center bg-white py-4 ${navlink.isActive ? 'bg-opacity-10' : 'bg-opacity-5'} hover:bg-opacity-10 transition`}>
+                    {navlink.text}
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="overflow-x-auto md:col-span-3">
+        <div className="md:col-span-3 p-10">
           <div className="flex justify-between">
-            <h1 className="mb-4 text-xl">Products</h1>
+            <h1 className="mb-4 text-4xl text-stone-100 font-bold">محصولات</h1>
             {loadingDelete && <div>Deleting item...</div>}
-            <button
-              disabled={loadingCreate}
-              onClick={createHandler}
-              className="primary-button"
-            >
-              {loadingCreate ? 'Loading' : 'Create'}
-            </button>
+            <PrimaryButton disabled={loadingCreate} handleClick={createHandler} text={loadingCreate ? 'Loading' : 'Create'} />
           </div>
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="min-w-full">
-                <thead className="border-b">
-                  <tr>
-                    <th className="px-5 text-left">ID</th>
-                    <th className="p-5 text-left">NAME</th>
-                    <th className="p-5 text-left">PRICE</th>
-                    <th className="p-5 text-left">CATEGORY</th>
-                    <th className="p-5 text-left">COUNT</th>
-                    <th className="p-5 text-left">RATING</th>
-                    <th className="p-5 text-left">ACTIONS</th>
-                  </tr>
-                </thead>
-                <tbody>
+            <div className="mt-10">
+                  <ul className='grid grid-cols-6 w-full border-b border-b-stone-100 pb-6'>
+                  <li className="">نام</li>
+                    <li className="">قیمت</li>
+                    <li className="">دسته بندی</li>
+                    <li className="">تعداد</li>
+                    <li className="">امتیاز</li>
+                    <li className="">فرمان ها</li>
+                  </ul>
                   {products.map((product) => (
-                    <tr key={product._id} className="border-b">
-                      <td className=" p-5 ">{product._id.substring(20, 24)}</td>
-                      <td className=" p-5 ">{product.name}</td>
-                      <td className=" p-5 ">${product.price}</td>
-                      <td className=" p-5 ">{product.category}</td>
-                      <td className=" p-5 ">{product.countInStock}</td>
-                      <td className=" p-5 ">{product.rating}</td>
-                      <td className=" p-5 ">
+                    <ul key={product._id} className="grid grid-cols-6 w-full border-b border-b-stone-100 py-6 items-center">
+                      <li className="">{product.name}</li>
+                      <li className="">${product.price}</li>
+                      <li className="">{product.category}</li>
+                      <li className="">{product.countInStock}</li>
+                      <li className="">{product.rating}</li>
+                      <li className="">
                         <Link href={`/admin/product/${product._id}`}>
                           <a type="button" className="default-button">
                             Edit
@@ -166,11 +157,9 @@ export default function AdminProdcutsScreen() {
                         >
                           Delete
                         </button>
-                      </td>
-                    </tr>
+                      </li>
+                    </ul>
                   ))}
-                </tbody>
-              </table>
             </div>
           )}
         </div>
