@@ -30,7 +30,7 @@ body {
 }
 
 .curve{
-  background: url(/Images/Path\ 148.svg) no-repeat center;
+  background: url(/images/Path\ 148.svg) no-repeat center;
   top: -69px;
   width: 100%;
   height: 30px;
@@ -40,7 +40,7 @@ body {
   filter: drop-shadow(0px 0px 70px #00FF5D44);
 }
 .latest-product{
-  background: url(/Images/Path\ 4.svg) no-repeat right;
+  background: url(/images/Path\ 4.svg) no-repeat right;
   background-size: 150% 100%;
 }
 @font-face {
