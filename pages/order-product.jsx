@@ -49,6 +49,7 @@ export default function PlaceOrderScreen() {
         taxPrice,
         totalPrice,
       });
+      console.log(data)
       setLoading(false);
       dispatch({ type: 'CART_CLEAR_ITEMS' });
       Cookies.set(
