@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="flex flex-row items-center">
           <Link href="/" passHref>
             <Image
-              src={"/Images/Logo.svg"}
+              src={"/images/Logo.svg"}
               alt={"logo"}
               className='cursor-pointer'
               width={50}

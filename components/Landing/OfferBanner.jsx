@@ -8,7 +8,7 @@ const OfferBanner = () => {
       <div className="max-w-7xl mx-auto">
       <div className="h-[330px] w-full overflow-hidden flex flex-row items-center">
         <div className="relative h-full w-full">
-        <Image src='/Images/model.jpeg' alt="" fill className="scale-x-125 scale-y-110" />
+        <Image src='/images/model.jpeg' alt="" fill className="scale-x-125 scale-y-110" />
         </div>
         <div className="px-32">
             <h1 className="text-3xl text-stone-700 leading-[1.270]">تخفیف باور نکردنی لباس های اسپورت</h1>

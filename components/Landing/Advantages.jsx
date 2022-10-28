@@ -4,10 +4,10 @@ import React from "react";
 
 const Advantages = () => {
   let advantages = [
-    { text: "گارانتی تعویض", image: '/Images/Group 14.svg' },
-    { text: "ارسال به سرار جهان", image: '/Images/Group 18.svg' },
-    { text: "تحویل سریع", image: '/Images/Group 8.svg' },
-    { text: "خدمات پس از فروش", image: '/Images/Group 17.svg' },
+    { text: "گارانتی تعویض", image: '/images/Group 14.svg' },
+    { text: "ارسال به سرار جهان", image: '/images/Group 18.svg' },
+    { text: "تحویل سریع", image: '/images/Group 8.svg' },
+    { text: "خدمات پس از فروش", image: '/images/Group 17.svg' },
   ]
 
   return (

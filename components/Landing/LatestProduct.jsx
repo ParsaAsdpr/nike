@@ -30,7 +30,7 @@ const LatestProduct = () => {
         <div className="w-1/3">
           <div className="h-full w-full latest-product flex flex-col items-center justify-center">
             <Image
-              src="/Images/idk.png"
+              src="/images/idk.png"
               alt="Latest Product"
               width={350}
               height={350}
