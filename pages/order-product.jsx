@@ -12,6 +12,9 @@ import { Store } from '../utils/Store';
 import PN from 'persian-number';
 import SecondaryButton from '../components/common/SecondaryButton';
 import PrimaryButton from '../components/common/PraimaryButton';
+import Table from '../components/common/Table/Table';
+import TableRow from '../components/common/Table/TableRow';
+import RowField from '../components/common/Table/RowField';
 
 export default function PlaceOrderScreen() {
   const { state, dispatch } = useContext(Store);
@@ -66,6 +69,13 @@ export default function PlaceOrderScreen() {
     }
   };
 
+  const tableHeaderItems = [
+    "کالا",
+    "تعداد",
+    "قیمت",
+    "قیمت مجموع",
+  ];
+
   return (
     <Layout title="سفارش کالا">
       <CheckoutWizard activeStep={3} />
@@ -83,16 +93,10 @@ export default function PlaceOrderScreen() {
           <h1 className="mb-4 text-2xl font-bold ">سفارش کالا</h1>
             <div className="overflow-x-auto p-1 mt-5">
               <h2 className="mt-5 text-lg">سفارش ها</h2>
-              <div className="min-w-full">
-                  <ul className='border-b border-b-stone-200 grid grid-cols-4 py-4 font-bold items-center'>
-                    <li className="">کالا</li>
-                    <li className="">تعداد</li>
-                    <li className="">قیمت</li>
-                    <li className="">مجموع قیمت</li>
-                  </ul>
-                  {cartItems.map((item) => (
-                    <ul key={item._id} className="border-b border-b-stone-200 grid grid-cols-4 py-4 font-bold items-center">
-                      <li>
+                 <Table headerItems={tableHeaderItems} cols={4}>
+                  {cartItems.map((item, index) => (
+                  <TableRow key={index} cols={4}>
+                      <RowField>
                         <Link href={`/products/${item.slug}`}>
                           <a className="flex items-center gap-3">
                             <Image
@@ -105,15 +109,15 @@ export default function PlaceOrderScreen() {
                             {item.name}
                           </a>
                         </Link>
-                      </li>
-                      <li className="">{item.quantity}</li>
-                      <li className="">{PN.convertEnToPe(PN.sliceNumber(item.price))} تومان{" "}</li>
-                      <li className="">
+                      </RowField>
+                      <RowField className="">{item.quantity}</RowField>
+                      <RowField className="">{PN.convertEnToPe(PN.sliceNumber(item.price))} تومان{" "}</RowField>
+                      <RowField className="">
                         {PN.convertEnToPe(PN.sliceNumber(item.quantity * item.price))} تومان{" "}
-                      </li>
-                    </ul>
+                      </RowField>
+                  </TableRow>
                   ))}
-              </div>
+                 </Table>
               <div className='mt-5'>
                 <SecondaryButton text='ویرایش' handleClick={() => router.push('/cart')} />
               </div>

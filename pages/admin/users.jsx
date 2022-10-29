@@ -7,6 +7,9 @@ import Layout from '../../components/Layout';
 import { getError } from '../../utils/error';
 import {useRouter} from 'next/router'
 import DangerButton from '../../components/common/DangerButton';
+import Table from '../../components/common/Table/Table';
+import TableRow from '../../components/common/Table/TableRow';
+import RowField from '../../components/common/Table/RowField';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -63,7 +66,7 @@ function reducer(state, action) {
       dispatch({ type: 'DELETE_REQUEST' });
       await axios.delete(`/api/admin/users/${userId}`);
       dispatch({ type: 'DELETE_SUCCESS' });
-      toast.success('User deleted successfully');
+      toast.success('کاربر مورد نظر با موفقیت حذف شد');
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
       toast.error(getError(err));
@@ -74,6 +77,13 @@ function reducer(state, action) {
     { text: "سفارش ها", href: "/admin/orders", isActive: false },
     { text: "محصولات", href: "/admin/products", isActive: false },
     { text: "کاربران", href: "/admin/users", isActive: true  },
+  ];
+
+  const tableHeaderItems = [
+    "نام",
+    "ایمیل",
+    "ادمین",
+    "فرمان ها",
   ];
   const router = useRouter();
   return (
@@ -93,32 +103,28 @@ function reducer(state, action) {
           </ul>
         </div>
         <div className="md:col-span-3 p-10">
-          <h1 className="mb-4 text-4xl text-stone-100 font-bold">کاربران</h1>
-          {loadingDelete && <div>Deleting...</div>}
+          <h1 className="mb-4 text-4xl text-stone-100 font-bold text-center">کاربران</h1>
+          {loadingDelete && <div>در حال حذف...</div>}
           {loading ? (
-            <div>Loading...</div>
+            <div>در حال بارگذاری...</div>
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
             <div className="mt-10">
-                  <ul className='grid grid-cols-4 w-full border-b text-right border-b-stone-100 pb-6'>
-                    <th className="">نام</th>
-                    <th className="">ایمیل</th>
-                    <th className="">ادمین</th>
-                    <th className="">فرمان ها</th>
-                  </ul>
-                  {users.map((user) => (
-                    <ul key={user._id} className="grid grid-cols-4 w-full border-b border-b-stone-100 py-6 items-center">
-                      <li className=" ">{user.name}</li>
-                      <li className=" ">{user.email}</li>
-                      <li className=" ">{user.isAdmin ? 'YES' : 'NO'}</li>
-                      <li className="flex flex-row gap-1">
+                  <Table headerItems={tableHeaderItems} cols={4}>
+                  {users.map((user, index) => (
+                    <TableRow key={index} cols={4}>
+                      <RowField>{user.name}</RowField>
+                      <RowField>{user.email}</RowField>
+                      <RowField>{user.isAdmin ? 'YES' : 'NO'}</RowField>
+                      <RowField>
                           <SecondaryButton sm handleClick={() => router.push(`/admin/user/${user._id}`)} text='ویرایش' />
                         &nbsp;
                         <DangerButton onClick={() => deleteHandler(user._id)} sm text='حذف' />
-                      </li>
-                    </ul>
+                      </RowField>
+                    </TableRow>
                   ))}
+                  </Table>
             </div>
           )}
         </div>

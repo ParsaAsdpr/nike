@@ -13,7 +13,7 @@ const SearchBox = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        router.push(`/search?query=${query}`);
+        router.push(`/products?query=${query}`);
     }
     return (
         <form onSubmit={handleSubmit} className="rounded-full bg-white bg-opacity-20 text-gray-300 flex flex-row px-5 items-center">

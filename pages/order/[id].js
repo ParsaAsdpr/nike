@@ -6,6 +6,9 @@ import { useEffect, useReducer } from "react";
 import Layout from "../../components/Layout";
 import { getError } from "../../utils/error";
 import PN from "persian-number";
+import Table from "../../components/common/Table/Table";
+import RowField from "../../components/common/Table/RowField";
+import TableRow from "../../components/common/Table/TableRow";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -53,6 +56,12 @@ function OrderScreen() {
     deliveredAt,
   } = order;
 
+  const tableHeaderItems = [
+    "کالا",
+    "تعداد",
+      "قیمت",
+    "مجموع قیمت",
+  ];
   return (
     <Layout title={`سفارش ${orderId}`}>
       <div className="mx-auto max-w-7xl mt-5" dir="rtl">
@@ -66,20 +75,11 @@ function OrderScreen() {
               سفارش <p className="font-sans">{orderId}</p>
             </h1>
             <div className="">
-              <h2 className="mt-8 text-lg">سفارش ها</h2>
-              <div className="min-w-full mt-3">
-                <ul className="border-b border-b-stone-200 grid grid-cols-4 pb-4 font-bold items-center">
-                  <li className="">کالا</li>
-                  <li className="">تعداد</li>
-                  <li className="">قیمت</li>
-                  <li className="">مجموع قیمت</li>
-                </ul>
-                {orderItems.map((item) => (
-                  <ul
-                    key={item._id}
-                    className="border-b border-b-stone-200 grid grid-cols-4 py-4 font-bold items-center"
-                  >
-                    <li>
+              <h2 className="mt-8  mb-4 text-lg">سفارش ها</h2>
+              <Table headerItems={tableHeaderItems} cols={4}>
+                {orderItems.map((item, index) => (
+                  <TableRow key={index} cols={4}>
+                    <RowField>
                       <Link href={`/products/${item.slug}`}>
                         <a className="flex items-center gap-3">
                           <Image
@@ -92,20 +92,20 @@ function OrderScreen() {
                           {item.name}
                         </a>
                       </Link>
-                    </li>
-                    <li className="text-right">{item.quantity}</li>
-                    <li className="text-right">
+                    </RowField>
+                    <RowField>{item.quantity}</RowField>
+                    <RowField>
                       {PN.convertEnToPe(PN.sliceNumber(item.price))} تومان{" "}
-                    </li>
-                    <li className="text-right">
+                    </RowField>
+                    <RowField>
                       {PN.convertEnToPe(
                         PN.sliceNumber(item.quantity * item.price)
                       )}{" "}
                       تومان{" "}
-                    </li>
-                  </ul>
+                    </RowField>
+                  </TableRow>
                 ))}
-              </div>
+              </Table>
               <h2 className="mb-2 text-xl font-semibold text-stone-300 mt-8">
                 آدرس انتقال
               </h2>

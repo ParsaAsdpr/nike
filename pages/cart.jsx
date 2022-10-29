@@ -9,6 +9,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import PrimaryButton from "../components/common/PraimaryButton";
 import {AiOutlineCloseCircle} from 'react-icons/ai'
+import Table from "../components/common/Table/Table";
+import RowField from "../components/common/Table/RowField";
+import TableRow from "../components/common/Table/TableRow";
 
 function CartScreen() {
   const router = useRouter();
@@ -28,6 +31,14 @@ function CartScreen() {
     dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
     toast.success("کالا مورد نظر تغیر یافت");
   };
+
+  const tableHeaderItems = [
+    "کالا",
+    "تعداد",
+    "قیمت",
+    "فرمان ها",
+  ];
+
   return (
     <Layout title="سبد خرید">
       <div
@@ -44,16 +55,10 @@ function CartScreen() {
           </div>
         ) : (
           <div className="flex flex-col gap-5 mt-5" dir="ltr">
-            <div className="" dir="rtl">
-              <ul className="w-full border-b border-b-stone-500 grid grid-cols-5">
-                <li className="p-5 text-lg font-bold col-span-2">کالا</li>
-                <li className="p-5 text-lg font-bold">تعداد</li>
-                <li className="p-5 text-lg font-bold">قیمت</li>
-                <li className="p-5 text-lg font-bold">فرمان ها</li>
-              </ul>
-              {cartItems.map((item) => (
-                <ul key={item.slug} className="border-b border-b-stone-500 w-full grid grid-cols-5">
-                  <li className="col-span-2 flex items-center">
+            <Table cols={4} headerItems={tableHeaderItems}>
+              {cartItems.map((item, index) => (
+                <TableRow key={index} cols={4}>
+                  <RowField className="col-span-2 flex items-center">
                     <Link href={`/products/${item.slug}`}>
                       <a className="flex items-center gap-1">
                         <Image
@@ -66,8 +71,8 @@ function CartScreen() {
                         {item.name}
                       </a>
                     </Link>
-                  </li>
-                  <li className="p-5">
+                  </RowField>
+                  <RowField className="p-5">
                     <select
                       value={item.quantity}
                       onChange={(e) => updateCartHandler(item, e.target.value)}
@@ -79,16 +84,16 @@ function CartScreen() {
                         </option>
                       ))}
                     </select>
-                  </li>
-                  <li className="p-5 flex items-center">${item.price}</li>
-                  <li className="p-5 flex items-center">
+                  </RowField>
+                  <RowField className="p-5 flex items-center">${item.price}</RowField>
+                  <RowField className="p-5 flex items-center">
                     <button onClick={() => removeItemHandler(item)}>
                       <AiOutlineCloseCircle className="text-2xl text-red-500 hover:text-red-600"></AiOutlineCloseCircle>
                     </button>
-                  </li>
-                </ul>
+                  </RowField>
+                </TableRow>
               ))}
-            </div>
+            </Table>
             <div className="card p-5">
               <ul>
                 <li>

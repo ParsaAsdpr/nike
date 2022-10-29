@@ -19,7 +19,7 @@ const data = {
     {
       name: 'Air Fly',
       slug: 'air-fly',
-      category: 'Sport',
+      category: 'اسپورت',
       image: '/images/sneaker.jpg',
       price: 700000,
       brand: 'Nike',
@@ -31,7 +31,7 @@ const data = {
     {
       name: 'Air Max',
       slug: 'air-max',
-      category: 'Men',
+      category: 'مردانه',
       image: '/images/shoe idk.png',
       price: 1600000,
       brand: 'Nike',
@@ -43,7 +43,7 @@ const data = {
     {
       name: 'Air Jordan 1',
       slug: 'air-jordan-1',
-      category: 'Men',
+      category: 'مردانه',
       image: '/images/idk nike.jpg',
       price: 4200000,
       brand: 'Nike',
@@ -55,7 +55,7 @@ const data = {
     {
       name: 'Blazer Mid',
       slug: 'blazer-mid',
-      category: 'Sport',
+      category: 'اسپورت',
       image: '/images/blazer mid.jpg',
       price: 2500000,
       brand: 'Nike',
@@ -67,7 +67,7 @@ const data = {
     {
       name: 'Jordan 1 Mid',
       slug: 'jordan-1-mid',
-      category: 'Sport',
+      category: 'اسپورت',
       image: '/images/Jordan red.jpg',
       price: 800000,
       brand: 'Nike',
@@ -79,7 +79,7 @@ const data = {
     {
       name: 'Air Force 1',
       slug: 'air-force-1',
-      category: 'Women',
+      category: 'زنانه',
       image: '/images/yellow pesto.jpg',
       price: 1200000,
       brand: 'Nike',

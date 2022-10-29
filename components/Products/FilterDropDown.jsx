@@ -12,7 +12,7 @@ const FilterDropDown = (props) => {
         <option value="all">همه</option>
         {props.options &&
           props.options.map((option, index) => (
-            <option key={index} value={option}>
+            <option key={index} value={index+1}>
               {option}
             </option>
           ))}

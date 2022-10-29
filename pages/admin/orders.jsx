@@ -1,6 +1,11 @@
 import axios from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useReducer } from 'react';
+import SecondaryButton from '../../components/common/SecondaryButton';
+import RowField from '../../components/common/Table/RowField';
+import Table from '../../components/common/Table/Table';
+import TableRow from '../../components/common/Table/TableRow';
 import Layout from '../../components/Layout';
 import { getError } from '../../utils/error';
 
@@ -43,6 +48,16 @@ export default function AdminOrderScreen() {
     { text: "محصولات", href: "/admin/products", isActive: false },
     { text: "کاربران", href: "/admin/users", isActive: false  },
   ];
+  const router = useRouter()
+
+  const tableHeaderItems = [
+    "کاربر",
+    "تاریخ",
+    "مجموع",
+    "وضعیت پرداخت",
+    "وضعیت ارسال",
+    "فرمان ها",
+  ];
 
   return (
     <Layout title="لیست سفارش ها">
@@ -64,46 +79,36 @@ export default function AdminOrderScreen() {
           <h1 className="mb-4 text-4xl text-stone-100 font-bold">لیست سفارش ها</h1>
 
           {loading ? (
-            <div>Loading...</div>
+            <div>در حال بارگذاری...</div>
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
-            <div className="">
-                  <ul className='grid grid-cols-6 w-full border-b border-b-stone-100 pb-4'>
-                    <li className="">کاربر</li>
-                    <li className="">تاریخ</li>
-                    <li className="">مجموع</li>
-                    <li className="">وضعیت پرداخت</li>
-                    <li className="">وضعیت ارسال</li>
-                    <li className="">فرمان ها</li>
-                  </ul>
-                  {orders.map((order) => (
-                    <ul key={order._id} className="grid grid-cols-6 w-full border-b border-b-stone-100 py-6 items-center">
-                      <li className="">
+            <Table headerItems={tableHeaderItems} cols={6}>
+                  {orders.map((order, index) => (
+                    <TableRow key={index} cols={6}>
+                      <RowField>
                         {order.user ? order.user.name : 'DELETED USER'}
-                      </li>
-                      <li className="">
+                      </RowField>
+                      <RowField>
                         {order.createdAt.substring(0, 10)}
-                      </li>
-                      <li className="">${order.totalPrice}</li>
-                      <li className="">
+                      </RowField>
+                      <RowField>${order.totalPrice}</RowField>
+                      <RowField>
                         {order.isPaid
                           ? `${order.paidAt.substring(0, 10)}`
                           : 'not paid'}
-                      </li>
-                      <li className="">
+                      </RowField>
+                      <RowField>
                         {order.isDelivered
                           ? `${order.deliveredAt.substring(0, 10)}`
                           : 'not delivered'}
-                      </li>
-                      <li className="">
-                        <Link href={`/order/${order._id}`} passHref>
-                          <a>Details</a>
-                        </Link>
-                      </li>
-                    </ul>
+                      </RowField>
+                      <RowField>
+                        <SecondaryButton text={'جزییات'} sm handleClick={() => router.push(`/order/${order._id}`)} />
+                      </RowField>
+                    </TableRow>
                   ))}
-            </div>
+            </Table>
           )}
         </div>
       </div>

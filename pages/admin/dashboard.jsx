@@ -1,6 +1,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { Bar } from "react-chartjs-2";
+import PN from 'persian-number'
 
 import {
   Chart as ChartJS,
@@ -86,9 +87,9 @@ function AdminDashboardScreen() {
 
   const analystic = [
     { value: summary.ordersPrice, text: "فروش", link: "/admin/orders", color: 'bg-red-600' },
-    { value: summary.ordersCount, text: "سفارش ها", link: "/admin/orders", color: 'bg-blue-600' },
-    { value: summary.productsCount, text: "محصولات", link: "/admin/products", color: 'bg-orange-600' },
-    { value: summary.usersCount, text: "کاربران", link: "/admin/users", color: 'bg-green-600' },
+    { value: summary.ordersCount, text: "سفارش", link: "/admin/orders", color: 'bg-blue-600' },
+    { value: summary.productsCount, text: "محصول", link: "/admin/products", color: 'bg-orange-600' },
+    { value: summary.usersCount, text: "کاربر", link: "/admin/users", color: 'bg-green-600' },
   ];
   return (
     <Layout title="داشبرد ادمین">
@@ -114,7 +115,7 @@ function AdminDashboardScreen() {
             ادمین داشبرد
           </h1>
           {loading ? (
-            <div>Loading...</div>
+            <div>در حال بارگذاری...</div>
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
@@ -123,7 +124,7 @@ function AdminDashboardScreen() {
                 {analystic.map((sum) => (
                   <Link key={sum.text} href={sum.link} passHref>
                     <div className={`flex flex-col items-center justify-center gap-5 rounded-lg py-10 ${sum.color}`}>
-                      <p className="text-3xl">{sum.value} </p>
+                      <p className="text-3xl">{PN.convertEnToPe(PN.sliceNumber(sum.value))} </p>
                       <p>{sum.text}</p>
                     </div>
                   </Link>
