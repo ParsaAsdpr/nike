@@ -1,7 +1,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { Bar } from "react-chartjs-2";
-import PN from 'persian-number'
+import PN from "persian-number";
 
 import {
   Chart as ChartJS,
@@ -15,6 +15,7 @@ import {
 import React, { useEffect, useReducer } from "react";
 import Layout from "../../components/Layout";
 import { getError } from "../../utils/error";
+import AdminLayout from "../../components/AdminLayout";
 
 ChartJS.register(
   CategoryScale,
@@ -78,69 +79,59 @@ function AdminDashboardScreen() {
     ],
   };
 
-  const navlinks = [
-    { text: "داشبرد", href: "/admin/dashboard", isActive: true },
-    { text: "سفارش ها", href: "/admin/orders", isActive: false },
-    { text: "محصولات", href: "/admin/products", isActive: false },
-    { text: "کاربران", href: "/admin/users", isActive: false  },
-  ];
-
   const analystic = [
-    { value: summary.ordersPrice, text: "فروش", link: "/admin/orders", color: 'bg-red-600' },
-    { value: summary.ordersCount, text: "سفارش", link: "/admin/orders", color: 'bg-blue-600' },
-    { value: summary.productsCount, text: "محصول", link: "/admin/products", color: 'bg-orange-600' },
-    { value: summary.usersCount, text: "کاربر", link: "/admin/users", color: 'bg-green-600' },
+    {
+      value: summary.ordersPrice,
+      text: "فروش",
+      link: "/admin/orders",
+      color: "bg-red-600",
+    },
+    {
+      value: summary.ordersCount,
+      text: "سفارش",
+      link: "/admin/orders",
+      color: "bg-blue-600",
+    },
+    {
+      value: summary.productsCount,
+      text: "محصول",
+      link: "/admin/products",
+      color: "bg-orange-600",
+    },
+    {
+      value: summary.usersCount,
+      text: "کاربر",
+      link: "/admin/users",
+      color: "bg-green-600",
+    },
   ];
   return (
     <Layout title="داشبرد ادمین">
-      <div
-        className="grid max-w-7xl mx-auto bg-stone-800 overflow-hidden mt-5 rounded-xl text-stone-200 md:grid-cols-4 md:gap-5"
-        dir="rtl"
-      >
-        <div className="bg-stone-900 p-3">
-          <ul className="flex flex-col gap-1">
-            {navlinks.map((navlink) => (
-              <li key={navlink.text}>
-                <Link href={navlink.href}>
-                  <a className={`font-bold text-xl text-stone-100 rounded-md flex flex-row items-center justify-center bg-white py-4 ${navlink.isActive ? 'bg-opacity-10' : 'bg-opacity-5'} hover:bg-opacity-10 transition`}>
-                    {navlink.text}
-                  </a>
-                </Link>
-              </li>
+      <AdminLayout activeIndex={0} error={error} loading={loading}>
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {analystic.map((sum) => (
+              <Link key={sum.text} href={sum.link} passHref>
+                <div
+                  className={`flex flex-col items-center justify-center gap-5 rounded-lg py-10 ${sum.color}`}
+                >
+                  <p className="text-3xl">
+                    {PN.convertEnToPe(PN.sliceNumber(sum.value))}{" "}
+                  </p>
+                  <p className="text-lg">{sum.text}</p>
+                </div>
+              </Link>
             ))}
-          </ul>
+          </div>
+          <h2 className="text-2xl mt-10">گزارش فروش</h2>
+          <Bar
+            options={{
+              legend: { display: true, position: "right" },
+            }}
+            data={data}
+          />
         </div>
-        <div className="md:col-span-3 p-10">
-          <h1 className="mb-4 text-4xl text-stone-100 font-bold">
-            ادمین داشبرد
-          </h1>
-          {loading ? (
-            <div>در حال بارگذاری...</div>
-          ) : error ? (
-            <div className="alert-error">{error}</div>
-          ) : (
-            <div>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {analystic.map((sum) => (
-                  <Link key={sum.text} href={sum.link} passHref>
-                    <div className={`flex flex-col items-center justify-center gap-5 rounded-lg py-10 ${sum.color}`}>
-                      <p className="text-3xl">{PN.convertEnToPe(PN.sliceNumber(sum.value))} </p>
-                      <p>{sum.text}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              <h2 className="text-2xl mt-10">گزارش فروش</h2>
-              <Bar
-                options={{
-                  legend: { display: true, position: "right" },
-                }}
-                data={data}
-              />
-            </div>
-          )}
-        </div>
-      </div>
+      </AdminLayout>
     </Layout>
   );
 }

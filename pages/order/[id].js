@@ -56,12 +56,7 @@ function OrderScreen() {
     deliveredAt,
   } = order;
 
-  const tableHeaderItems = [
-    "کالا",
-    "تعداد",
-      "قیمت",
-    "مجموع قیمت",
-  ];
+  const tableHeaderItems = ["کالا", "تعداد", "قیمت", "مجموع قیمت"];
   return (
     <Layout title={`سفارش ${orderId}`}>
       <div className="mx-auto max-w-7xl mt-5" dir="rtl">

@@ -1,8 +1,8 @@
 import axios from "axios";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
+import AdminLayout from "../../components/AdminLayout";
 import DangerButton from "../../components/common/DangerButton";
 import SecondaryButton from "../../components/common/SecondaryButton";
 import RowField from "../../components/common/Table/RowField";
@@ -41,14 +41,12 @@ function reducer(state, action) {
 export default function AdminProdcutsScreen() {
   const router = useRouter();
 
-  const [
-    { loading, error, products, successDelete, loadingDelete },
-    dispatch,
-  ] = useReducer(reducer, {
-    loading: true,
-    products: [],
-    error: "",
-  });
+  const [{ loading, error, products, successDelete, loadingDelete }, dispatch] =
+    useReducer(reducer, {
+      loading: true,
+      products: [],
+      error: "",
+    });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,13 +81,6 @@ export default function AdminProdcutsScreen() {
     }
   };
 
-  const navlinks = [
-    { text: "داشبرد", href: "/admin/dashboard", isActive: false },
-    { text: "سفارش ها", href: "/admin/orders", isActive: false },
-    { text: "محصولات", href: "/admin/products", isActive: true },
-    { text: "کاربران", href: "/admin/users", isActive: false },
-  ];
-
   const tableHeaderItems = [
     "نام",
     "قیمت",
@@ -100,58 +91,41 @@ export default function AdminProdcutsScreen() {
   ];
   return (
     <Layout title="Admin Products">
-      <div
-        className="grid max-w-7xl mx-auto bg-stone-800 overflow-hidden mt-5 rounded-xl text-stone-200 md:grid-cols-4 md:gap-5"
-        dir="rtl"
+      <AdminLayout
+        activeIndex={2}
+        error={error}
+        loading={loading}
+        altLoading={loadingDelete}
       >
-        <div className="bg-stone-900 p-3">
-          <ul className="flex flex-col gap-1">
-            {navlinks.map((navlink) => (
-              <li key={navlink.text}>
-                <Link href={navlink.href}>
-                  <a
-                    className={`font-bold text-xl text-stone-100 rounded-md flex flex-row items-center justify-center bg-white py-4 ${
-                      navlink.isActive ? "bg-opacity-10" : "bg-opacity-5"
-                    } hover:bg-opacity-10 transition`}
-                  >
-                    {navlink.text}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="md:col-span-3 p-10">
-          <div className="flex flex-col gap-1">
-            <h1 className="text-4xl text-stone-100 font-bold text-center">محصولات</h1>
-            {loadingDelete && <div>در حال حذف...</div>}
-          </div>
-          {loading ? (
-            <div>در حال بارگذاری...</div>
-          ) : error ? (
-            <div className="alert-error">{error}</div>
-          ) : (
-            <div className="mt-10">
-              <Table headerItems={tableHeaderItems} cols={6}>
-              {products.map((product, index) => (
-                <TableRow key={index} cols={6}>
-                  <RowField>{product.name}</RowField>
-                  <RowField>${product.price}</RowField>
-                  <RowField>{product.category}</RowField>
-                  <RowField>{product.countInStock}</RowField>
-                  <RowField>{product.rating}</RowField>
-                  <RowField >
-                  <SecondaryButton className={'w-1/2 text-xs'} text={'ویرایش'} sm handleClick={() => router.push(`/admin/product/${product._id}`)} />
-                    &nbsp;
-                    <DangerButton className={`w-1/2 text-xs`} text={'حذف'} sm handleClick={() => deleteHandler(product._id)} />
-                  </RowField>
-                </TableRow>
-              ))}
-              </Table>
-            </div>
-          )}
-        </div>
-      </div>
+        <Table headerItems={tableHeaderItems} cols={6}>
+          {products.map((product, index) => (
+            <TableRow key={index} cols={6}>
+              <RowField>{product.name}</RowField>
+              <RowField>${product.price}</RowField>
+              <RowField>{product.category}</RowField>
+              <RowField>{product.countInStock}</RowField>
+              <RowField>{product.rating}</RowField>
+              <RowField>
+                <SecondaryButton
+                  className={"w-1/2 text-xs"}
+                  text={"ویرایش"}
+                  sm
+                  handleClick={() =>
+                    router.push(`/admin/product/${product._id}`)
+                  }
+                />
+                &nbsp;
+                <DangerButton
+                  className={`w-1/2 text-xs`}
+                  text={"حذف"}
+                  sm
+                  handleClick={() => deleteHandler(product._id)}
+                />
+              </RowField>
+            </TableRow>
+          ))}
+        </Table>
+      </AdminLayout>
     </Layout>
   );
 }
