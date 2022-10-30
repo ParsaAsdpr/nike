@@ -8,7 +8,7 @@ import DropdownLink from "../common/DropdownLink";
 import Image from "next/image";
 import SearchBox from "./SearchBox";
 import { FiShoppingCart } from "react-icons/fi";
-import {BsFillTriangleFill} from 'react-icons/bs'
+import { BsFillTriangleFill } from "react-icons/bs";
 
 const Navbar = () => {
   const navItems = [
@@ -43,7 +43,7 @@ const Navbar = () => {
             <Image
               src={"/images/Logo.svg"}
               alt={"logo"}
-              className='cursor-pointer'
+              className="cursor-pointer"
               width={50}
               height={50}
             />
@@ -79,7 +79,10 @@ const Navbar = () => {
             "Loading"
           ) : session?.user ? (
             <Menu as="div" className="relative inline-block">
-              <Menu.Button className="text-gray-400 hover:text-gray-200 transition border border-stone-500 bg-[#151515] rounded-full px-6 py-3 flex flex-row items-center gap-5 justify-between" dir="ltr">
+              <Menu.Button
+                className="text-gray-400 hover:text-gray-200 transition border border-stone-500 bg-[#151515] rounded-full px-6 py-3 flex flex-row items-center gap-5 justify-between"
+                dir="ltr"
+              >
                 <p>{session.user.name}</p>
                 <BsFillTriangleFill className="text-xs rotate-180" />
               </Menu.Button>

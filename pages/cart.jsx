@@ -8,10 +8,10 @@ import dynamic from "next/dynamic";
 import axios from "axios";
 import { toast } from "react-toastify";
 import PrimaryButton from "../components/common/PraimaryButton";
-import {AiOutlineCloseCircle} from 'react-icons/ai'
 import Table from "../components/common/Table/Table";
 import RowField from "../components/common/Table/RowField";
 import TableRow from "../components/common/Table/TableRow";
+import DangerButton from "../components/common/DangerButton";
 
 function CartScreen() {
   const router = useRouter();
@@ -32,12 +32,7 @@ function CartScreen() {
     toast.success("کالا مورد نظر تغیر یافت");
   };
 
-  const tableHeaderItems = [
-    "کالا",
-    "تعداد",
-    "قیمت",
-    "فرمان ها",
-  ];
+  const tableHeaderItems = ["کالا", "تعداد", "قیمت", "فرمان ها"];
 
   return (
     <Layout title="سبد خرید">
@@ -58,7 +53,7 @@ function CartScreen() {
             <Table cols={4} headerItems={tableHeaderItems}>
               {cartItems.map((item, index) => (
                 <TableRow key={index} cols={4}>
-                  <RowField className="col-span-2 flex items-center">
+                  <RowField className="flex items-center">
                     <Link href={`/products/${item.slug}`}>
                       <a className="flex items-center gap-1">
                         <Image
@@ -76,7 +71,7 @@ function CartScreen() {
                     <select
                       value={item.quantity}
                       onChange={(e) => updateCartHandler(item, e.target.value)}
-                      className='bg-stone-700 rounded-sm w-full p-1'
+                      className="bg-stone-700 rounded-sm w-full p-1"
                     >
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
@@ -85,11 +80,15 @@ function CartScreen() {
                       ))}
                     </select>
                   </RowField>
-                  <RowField className="p-5 flex items-center">${item.price}</RowField>
                   <RowField className="p-5 flex items-center">
-                    <button onClick={() => removeItemHandler(item)}>
-                      <AiOutlineCloseCircle className="text-2xl text-red-500 hover:text-red-600"></AiOutlineCloseCircle>
-                    </button>
+                    ${item.price}
+                  </RowField>
+                  <RowField className="p-5 flex items-center">
+                    <DangerButton
+                      text="حذف"
+                      handleClick={() => removeItemHandler(item)}
+                      sm
+                    />
                   </RowField>
                 </TableRow>
               ))}
@@ -98,13 +97,25 @@ function CartScreen() {
               <ul>
                 <li>
                   <div className="pb-3 text-xl text-center">
-                    مجموع <p className="text-green-400 inline">{cartItems.reduce((a, c) => a + c.quantity, 0)} </p>کالا شما: &nbsp;
-                    <p className="text-green-400 inline mx-1">{cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} </p>تومان 
+                    مجموع{" "}
+                    <p className="text-green-400 inline">
+                      {cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
+                    </p>
+                    کالا شما: &nbsp;
+                    <p className="text-green-400 inline mx-1">
+                      {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}{" "}
+                    </p>
+                    تومان
                   </div>
                 </li>
                 <li>
                   <div className="mt-5">
-                  <PrimaryButton handleClick={() => router.push("login?redirect=/shipping")} text="پرداخت" />
+                    <PrimaryButton
+                      handleClick={() =>
+                        router.push("login?redirect=/shipping")
+                      }
+                      text="پرداخت"
+                    />
                   </div>
                 </li>
               </ul>

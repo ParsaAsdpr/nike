@@ -7,6 +7,7 @@ const AdminLayout = ({
   error,
   activeIndex,
   altLoading,
+  title,
 }) => {
   const navlinks = [
     { text: "داشبرد", href: "/admin/dashboard" },
@@ -39,9 +40,7 @@ const AdminLayout = ({
       </div>
       <div className="md:col-span-3 p-10">
         <div className="flex flex-col gap-1">
-          <h1 className="mb-4 text-4xl text-stone-100 font-bold">
-            ادمین داشبرد
-          </h1>
+          <h1 className="mb-4 text-4xl text-stone-100 font-bold">{title}</h1>
           {altLoading && <div>در حال حذف...</div>}
         </div>
         {loading ? (

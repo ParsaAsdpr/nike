@@ -37,7 +37,7 @@ export default function Search(props) {
     rating = "all",
     sort = "featured",
   } = router.query;
-  const { products, categories} = props;
+  const { products, categories } = props;
 
   const filterSearch = ({
     category,
@@ -74,7 +74,7 @@ export default function Search(props) {
   };
   const ratingHandler = (e) => {
     filterSearch({ rating: e.target.value });
-    console.log(rating)
+    console.log(rating);
   };
 
   const { state, dispatch } = useContext(Store);
@@ -90,36 +90,60 @@ export default function Search(props) {
     router.push("/cart");
   };
   return (
-    <Layout title={query == '' || query == 'all' ? 'محصولات' : `جستجو محصول ${query}`}>
+    <Layout
+      title={query == "" || query == "all" ? "محصولات" : `جستجو محصول ${query}`}
+    >
       <section className="my-8 max-w-7xl mx-auto" dir="rtl">
-        <Title text={query == '' || query == 'all' ? 'محصولات' : `جستجو محصول ${query}`} />
+        <Title
+          text={
+            query == "" || query == "all" ? "محصولات" : `جستجو محصول ${query}`
+          }
+        />
 
         <div className="py-6 flex flex-row gap-6 items-center">
-        <FilterDropDown defaultValue={category} changeHandler={categoryHandler} options={categories} text='دسته بندی' />
-        <FilterDropDown defaultValue={rating} changeHandler={ratingHandler} options={ratings} text='امتیاز' />
-        <div className="flex flex-row gap-3 items-center">
-        <p className="text-stone-100 text-xl">قیمت</p>
-        <select className="py-3 px-4 text-lg rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent" value={price} onChange={priceHandler}>
-        <option value='all'>همه</option>
-          {prices &&
-            prices.map((price, index) => (
-              <option key={index} value={price.value}>
-                {price.name}
-              </option>
-            ))}
-        </select>
-        </div>
+          <FilterDropDown
+            defaultValue={category}
+            changeHandler={categoryHandler}
+            options={categories}
+            text="دسته بندی"
+          />
+          <FilterDropDown
+            defaultValue={rating}
+            changeHandler={ratingHandler}
+            options={ratings}
+            text="امتیاز"
+          />
+          <div className="flex flex-row gap-3 items-center">
+            <p className="text-stone-100 text-xl">قیمت</p>
+            <select
+              className="py-3 px-4 text-lg rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent"
+              value={price}
+              onChange={priceHandler}
+            >
+              <option value="all">همه</option>
+              {prices &&
+                prices.map((price, index) => (
+                  <option key={index} value={price.value}>
+                    {price.name}
+                  </option>
+                ))}
+            </select>
+          </div>
 
-        <div className="flex flex-row gap-3 items-center">
-        <p className="text-stone-100 text-xl">دسته بندی</p>
-        <select className="py-3 px-4 text-lg rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent" value={sort} onChange={sortHandler}>
-                <option value="featured">مرتبط ترین ها</option>
-                <option value="lowest">ارزان ترین ها</option>
-                <option value="highest">گران ترین ها</option>
-                <option value="toprated">محبوب ترین ها</option>
-                <option value="newest">جدید ترین ها</option>
-              </select>
-              </div>
+          <div className="flex flex-row gap-3 items-center">
+            <p className="text-stone-100 text-xl">دسته بندی</p>
+            <select
+              className="py-3 px-4 text-lg rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent"
+              value={sort}
+              onChange={sortHandler}
+            >
+              <option value="featured">مرتبط ترین ها</option>
+              <option value="lowest">ارزان ترین ها</option>
+              <option value="highest">گران ترین ها</option>
+              <option value="toprated">محبوب ترین ها</option>
+              <option value="newest">جدید ترین ها</option>
+            </select>
+          </div>
         </div>
 
         <div className="grid grid-cols-4 gap-y-7 gap-5 mt-10">

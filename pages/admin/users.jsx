@@ -73,22 +73,23 @@ function AdminUsersScreen() {
     }
   };
 
-  const tableHeaderItems = ["نام", "ایمیل", "ادمین", "فرمان ها"];
+  const tableHeaderItems = ["نام", "ایمیل", "سمت", "فرمان ها"];
   const router = useRouter();
   return (
-    <Layout title="Users">
+    <Layout title="لیست کاربران">
       <AdminLayout
         activeIndex={3}
         error={error}
         loading={loading}
         altLoading={loadingDelete}
+        title="لیست کاربران"
       >
         <Table headerItems={tableHeaderItems} cols={4}>
           {users.map((user, index) => (
             <TableRow key={index} cols={4}>
               <RowField>{user.name}</RowField>
               <RowField>{user.email}</RowField>
-              <RowField>{user.isAdmin ? "YES" : "NO"}</RowField>
+              <RowField>{user.isAdmin ? "ادمین" : "کاربر"}</RowField>
               <RowField>
                 <SecondaryButton
                   sm

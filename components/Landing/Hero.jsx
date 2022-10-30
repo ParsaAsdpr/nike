@@ -31,13 +31,13 @@ const Hero = () => {
         </div>
 
         <div className="w-1/2 flex flex-col items-center justify-center">
-            <Image
-              src="/images/some good shoe.png"
-              alt="shoe"
-              className="rotate-12 shoe overflow-visible"
-              width={500}
-              height={500}
-            />
+          <Image
+            src="/images/some good shoe.png"
+            alt="shoe"
+            className="rotate-12 shoe overflow-visible"
+            width={500}
+            height={500}
+          />
         </div>
       </div>
     </section>

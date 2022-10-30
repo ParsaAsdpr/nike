@@ -67,7 +67,7 @@ export default function AdminProdcutsScreen() {
   }, [successDelete]);
 
   const deleteHandler = async (productId) => {
-    if (!window.confirm("Are you sure?")) {
+    if (!window.confirm("آیا مطمئن هستید؟")) {
       return;
     }
     try {
@@ -90,12 +90,13 @@ export default function AdminProdcutsScreen() {
     "فرمان ها",
   ];
   return (
-    <Layout title="Admin Products">
+    <Layout title="لیست محصولات">
       <AdminLayout
         activeIndex={2}
         error={error}
         loading={loading}
         altLoading={loadingDelete}
+        title="لیست محصولات"
       >
         <Table headerItems={tableHeaderItems} cols={6}>
           {products.map((product, index) => (

@@ -55,22 +55,29 @@ export default function AdminOrderScreen() {
 
   return (
     <Layout title="لیست سفارش ها">
-      <AdminLayout activeIndex={1} error={error} loading={loading}>
+      <AdminLayout
+        activeIndex={1}
+        error={error}
+        loading={loading}
+        title="لیست سفارش ها"
+      >
         <Table headerItems={tableHeaderItems} cols={6}>
           {orders.map((order, index) => (
             <TableRow key={index} cols={6}>
               <RowField>
-                {order.user ? order.user.name : "DELETED USER"}
+                {order.user ? order.user.name : "حساب حذف شده"}
               </RowField>
               <RowField>{order.createdAt.substring(0, 10)}</RowField>
               <RowField>${order.totalPrice}</RowField>
               <RowField>
-                {order.isPaid ? `${order.paidAt.substring(0, 10)}` : "not paid"}
+                {order.isPaid
+                  ? `${order.paidAt.substring(0, 10)}`
+                  : "پرداخت نشده"}
               </RowField>
               <RowField>
                 {order.isDelivered
                   ? `${order.deliveredAt.substring(0, 10)}`
-                  : "not delivered"}
+                  : "ارسال نشده"}
               </RowField>
               <RowField>
                 <SecondaryButton

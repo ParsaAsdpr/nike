@@ -61,7 +61,7 @@ function OrderScreen() {
     <Layout title={`سفارش ${orderId}`}>
       <div className="mx-auto max-w-7xl mt-5" dir="rtl">
         {loading ? (
-          <div>Loading...</div>
+          <div>در حال بارگذاری...</div>
         ) : error ? (
           <div className="alert-error">{error}</div>
         ) : (

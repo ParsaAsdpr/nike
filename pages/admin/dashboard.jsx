@@ -107,7 +107,12 @@ function AdminDashboardScreen() {
   ];
   return (
     <Layout title="داشبرد ادمین">
-      <AdminLayout activeIndex={0} error={error} loading={loading}>
+      <AdminLayout
+        activeIndex={0}
+        error={error}
+        loading={loading}
+        title="داشبرد ادمین"
+      >
         <div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {analystic.map((sum) => (

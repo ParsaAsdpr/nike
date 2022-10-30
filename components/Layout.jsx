@@ -1,16 +1,15 @@
-import Head from 'next/head';
-import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Footer from './Footer/Footer';
-import Navbar from './Navbar/Navbar';
+import Head from "next/head";
+import React from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Footer/Footer";
+import Navbar from "./Navbar/Navbar";
 
 export default function Layout({ title, children }) {
-
   return (
     <>
       <Head>
-        <title>{title ? title + ' - نایکی' : 'نایکی'}</title>
+        <title>{title ? title + " - نایکی" : "نایکی"}</title>
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
