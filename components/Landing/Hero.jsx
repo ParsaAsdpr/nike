@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="w-full bg-stone-900" dir="rtl">
       <div className="max-w-7xl mx-auto flex md:flex-row flex-col-reverse justify-between py-28 md:pt-28 xl:pt-0">
-        <div className="py-44 overflow-hidden flex flex-row justify-between w-full md:w-1/2">
+        <div className="md:py-24 py-44 overflow-hidden flex flex-row justify-between w-full md:w-1/2">
           <div className=" flex flex-col justify-center items-center px-10 sm:px-5 lg:px-10">
             <h1 className="xl:text-7xl text-white text-right w-full xl:leading-relaxed md:leading-relaxed leading-relaxed lg:text-5xl sm:text-4xl text-3xl">
               محصول جدید نایکی Nike Air Max
@@ -19,7 +19,7 @@ const Hero = () => {
               نیاز و کاربردهای متنوع
             </p>
 
-            <div className="flex flex-row justify-between mt-12 w-full lg:gap-0 gap-8">
+            <div className="flex flex-row justify-between mt-12 w-full gap-8">
               <div className="lg:w-1/3 md:w-1/2 sm:w-1/2 w-2/3">
                 <PrimaryButton url="#" text="مشاهده محصول" className={'sm:text-base lg:text-lg text-sm'} />
               </div>
