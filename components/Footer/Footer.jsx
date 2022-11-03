@@ -42,8 +42,7 @@ const Footer = () => {
       className="mt-5 border-t border-t-white border-opacity-25 bg-black bg-opacity-10 text-stone-100"
       dir="rtl"
     >
-      <div className="max-w-7xl mx-auto py-10 grid grid-cols-4">
-        <div className="col-span-3 grid grid-cols-3">
+      <div className="max-w-7xl mx-auto py-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 px-6 md:px-10 gap-y-10">
           {footerItems.map((footerItem, index) => (
             <div className="flex flex-col gap-4" key={index}>
               <h2 className="text-lg text-stone-50">{footerItem.header}</h2>
@@ -58,8 +57,7 @@ const Footer = () => {
               </div>
             </div>
           ))}
-        </div>
-        <div className="flex flex-row justify-center items-center gap-7">
+        <div className="flex flex-row justify-center items-center gap-7 col-span-1 sm:col-span-3 mt-10 lg:mt-0 lg:col-auto">
           {socialLinks.map((socialLink, index) => (
             <Link key={index} href={socialLink.href} title={socialLink.text}>
               <a className="text-2xl bg-white bg-opacity-20 hover:bg-opacity-80 transition rounded-full p-3 text-stone-900">{socialLink.component}</a>

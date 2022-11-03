@@ -7,7 +7,7 @@ const OfferBanner = () => {
     <div className="w-full bg-[#F7F4EF]">
       <div className="max-w-7xl mx-auto">
         <div className="h-[330px] w-full overflow-hidden flex flex-row items-center">
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-full hidden lg:block">
             <Image
               src="/images/model.jpeg"
               alt=""
@@ -15,8 +15,8 @@ const OfferBanner = () => {
               className="scale-x-125 scale-y-110"
             />
           </div>
-          <div className="px-32">
-            <h1 className="text-3xl text-stone-700 leading-[1.270]">
+          <div className="px-12 sm:px-32">
+            <h1 className="sm:text-3xl text-2xl text-stone-700 leading-[1.270]">
               تخفیف باور نکردنی لباس های اسپورت
             </h1>
             <p className="text-stone-500 text-md leading-relaxed mt-4">

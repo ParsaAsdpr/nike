@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LinkButton = props => {
+const LinkButton = ({text, url , className}) => {
     return (
-        <a className='text-green-500 text-base cursor-pointer link-btn hover:scale-105 transition' href={props.url}>
-            {props.text}
+        <a className={`${className} text-green-500 text-base cursor-pointer text-center link-btn hover:scale-105 transition`} href={url}>
+            {text}
         </a>
     );
 };

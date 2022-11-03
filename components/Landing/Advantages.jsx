@@ -10,7 +10,7 @@ const Advantages = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto grid grid-cols-4 py-14 px-20">
+    <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 py-14 px-10 gap-10 lg:gap-0 lg:px-20">
       {advantages.map((advantage, index) => (
         <div className="flex flex-col justify-center items-center" key={index}>
           <Image
@@ -19,7 +19,7 @@ const Advantages = () => {
             width={150}
             height={150}
           />
-          <p className="text-xl text-white opacity-50 pt-5">{advantage.text}</p>
+          <p className="lg:text-xl sm:text-sm text-sm  text-white opacity-50 pt-5">{advantage.text}</p>
         </div>
       ))}
     </div>
