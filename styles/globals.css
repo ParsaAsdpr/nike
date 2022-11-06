@@ -43,6 +43,59 @@ body {
   background: url(/images/Path\ 4.svg) no-repeat right;
   background-size: 150% 100%;
 }
+
+
+
+header {
+  @apply bg-stone-900;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 2rem;
+  list-style: none;
+  text-align: center;
+  justify-content: start;
+  margin-right: 2rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+    width: 100%;
+    position: fixed;
+    top: 91px;
+    margin-right: 0;
+    right: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    box-shadow: 0px 15px 30px 1px #00000022;
+    /* padding: 20px 0; */
+  }
+  .nav-menu.active {
+    background: #111111;
+    right: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 400px) {
+    .username{
+        display: none;
+    }
+}
+@media screen and (max-width: 962px) {
+  header .mobilesign{
+      display: block !important;
+  }
+}
+
 @font-face {
   font-family: koodak;
   src: url(/Fonts/BKoodkBd.ttf);

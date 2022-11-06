@@ -2,7 +2,7 @@ import React from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useRouter } from "next/router";
 
-const SearchBox = () => {
+const SearchBox = ({className}) => {
   const [query, setQuery] = React.useState("");
   const queryChangeHandler = (e) => {
     setQuery(e.target.value);
@@ -18,7 +18,7 @@ const SearchBox = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-full bg-white bg-opacity-20 text-gray-300 flex flex-row px-5 items-center"
+      className={`${className} rounded-full bg-white bg-opacity-20 text-gray-300 flex flex-row px-5 items-center`}
     >
       <input
         type="text"
