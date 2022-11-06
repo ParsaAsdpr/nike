@@ -118,23 +118,25 @@ function AdminDashboardScreen() {
             {analystic.map((sum) => (
               <Link key={sum.text} href={sum.link} passHref>
                 <div
-                  className={`flex flex-col items-center justify-center gap-5 rounded-lg py-10 ${sum.color}`}
+                  className={`flex flex-col cursor-pointer items-center justify-center gap-5 rounded-lg py-10 ${sum.color}`}
                 >
-                  <p className="text-3xl">
+                  <p className="xl:text-3xl lg:text-2xl text-xl">
                     {PN.convertEnToPe(PN.sliceNumber(sum.value))}{" "}
                   </p>
-                  <p className="text-lg">{sum.text}</p>
+                  <p className="lg:text-lg text-base">{sum.text}</p>
                 </div>
               </Link>
             ))}
           </div>
           <h2 className="text-2xl mt-10">گزارش فروش</h2>
+          <div className="w-full overflow-scroll">
           <Bar
             options={{
               legend: { display: true, position: "right" },
             }}
             data={data}
           />
+          </div>
         </div>
       </AdminLayout>
     </Layout>

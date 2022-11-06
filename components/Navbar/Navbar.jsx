@@ -95,20 +95,14 @@ const Navbar = () => {
           ) : session?.user ? (
             <Menu as="div" className="relative inline-block">
               <Menu.Button
-                className="text-gray-400 hover:text-gray-200 transition flex lg:hidden flex-col items-center gap-2 justify-between"
+                className="text-gray-400 hover:text-gray-200 transition lg:border lg:border-stone-500 lg:bg-[#151515] rounded-full lg:px-6 lg:py-3 flex flex-col lg:flex-row items-center gap-2 lg:gap-5 justify-between"
                 dir="ltr"
               >
-                <p><FaUserAlt /></p>
+                <p className="lg:block hidden">{session.user.name}</p>
+                <p className="lg:hidden block"><FaUserAlt /></p>
                 <BsFillTriangleFill className="text-xs rotate-180" />
               </Menu.Button>
 
-              <Menu.Button
-                className="text-gray-400 hidden hover:text-gray-200 transition border border-stone-500 bg-[#151515] rounded-full px-6 py-3 lg:flex flex-row items-center gap-5 justify-between"
-                dir="ltr"
-              >
-                <p>{session.user.name}</p>
-                <BsFillTriangleFill className="text-xs rotate-180" />
-              </Menu.Button>
               <Menu.Items className="absolute left-0 w-56 origin-top-left lg:origin-top-right top-16 bg-stone-700 text-white shadow-lg rounded-md py-1">
                 <Menu.Item>
                   <DropdownLink className="dropdown-link" href="/profile">
