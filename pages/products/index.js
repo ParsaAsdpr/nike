@@ -100,7 +100,7 @@ export default function Search(props) {
           }
         />
 
-        <div className="py-6 flex flex-row gap-6 items-center">
+        <div className="py-6 flex flex-row flex-wrap gap-6 items-center px-5">
           <FilterDropDown
             defaultValue={category}
             changeHandler={categoryHandler}
@@ -114,9 +114,9 @@ export default function Search(props) {
             text="امتیاز"
           />
           <div className="flex flex-row gap-3 items-center">
-            <p className="text-stone-100 text-xl">قیمت</p>
+            <p className="text-stone-100 xl:text-xl md:text-lg text-base">قیمت</p>
             <select
-              className="py-3 px-4 text-lg rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent"
+              className="py-3 px-4 xl:text-lg md:text-base text-sm rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent"
               value={price}
               onChange={priceHandler}
             >
@@ -131,9 +131,9 @@ export default function Search(props) {
           </div>
 
           <div className="flex flex-row gap-3 items-center">
-            <p className="text-stone-100 text-xl">دسته بندی</p>
+            <p className="text-stone-100 xl:text-xl md:text-lg text-base">دسته بندی</p>
             <select
-              className="py-3 px-4 text-lg rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent"
+              className="py-3 px-4 xl:text-lg md:text-base text-sm rounded-md bg-stone-900 text-stone-200 border-l-8 border-l-transparent"
               value={sort}
               onChange={sortHandler}
             >
@@ -146,7 +146,7 @@ export default function Search(props) {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-y-7 gap-5 mt-10">
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-y-7 gap-5 mt-10 px-5">
           {products.map((product) => (
             <ProductItem
               product={product}
